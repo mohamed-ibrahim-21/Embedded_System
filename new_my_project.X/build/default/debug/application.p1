@@ -293,21 +293,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e ( _application_intialize ..  ]
 "16
 [; ;application.c: 16:     while(1){
-[e :U 281 ]
+[e :U 283 ]
 {
 "19
 [; ;application.c: 19:     }
 }
-[e :U 280 ]
-[e $U 281  ]
 [e :U 282 ]
+[e $U 283  ]
+[e :U 284 ]
 "21
 [; ;application.c: 21:     return (0);
 [e ) -> 0 `i ]
-[e $UE 279  ]
+[e $UE 281  ]
 "22
 [; ;application.c: 22: }
-[e :UE 279 ]
+[e :UE 281 ]
 }
 "25
 [; ;application.c: 25: void application_intialize(void){
@@ -321,5 +321,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e = _ret -> -> 0 `i `uc ]
 "28
 [; ;application.c: 28: }
-[e :UE 283 ]
+[e :UE 285 ]
 }
