@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Sat Nov 11 16:38:22 2023
+                                                                                               Tue Nov 14 15:18:26 2023
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F4620
@@ -241,7 +241,7 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    227 ;; Auto vars:     Size  Location     Type
    228 ;;  ret             1    0        unsigned char 
    229 ;; Return value:  Size  Location     Type
-   230 ;;                  2  217[None  ] int 
+   230 ;;                  2  274[None  ] int 
    231 ;; Registers used:
    232 ;;		wreg, status,2, cstack
    233 ;; Tracked objects:
@@ -275,8 +275,8 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    256   001066                     
    257                           ;application.c: 14:     application_intialize();
    258   001066  EC39  F008         	call	_application_intialize	;wreg free
-   259   00106A                     l218:
-   260   00106A  EF35  F008         	goto	l218
+   259   00106A                     l275:
+   260   00106A  EF35  F008         	goto	l275
    261   00106E  EF00  F000         	goto	start
    262   001072                     __end_of_main:
    263                           	callstack 0
@@ -676,11 +676,11 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Sat Nov 11 16:38:22 2023
+Symbol Table                                                                                   Tue Nov 14 15:18:26 2023
 
-                          l224 1072                            l218 106A                            l219 106A  
-          led_initialize@F2891 0025                            wreg 0FE8          relay_initialize@F2885 0021  
-                         l1031 1072                           l1285 1066                           l1287 1066  
+                          l281 1072                            l275 106A                            l276 106A  
+                          l979 1072            led_initialize@F2891 0025                            wreg 0FE8  
+        relay_initialize@F2885 0021                           l1405 1066                           l1407 1066  
                          _LATA 0F89                           _LATB 0F8A                           _LATC 0F8B  
                          _LATD 0F8C                           _LATE 0F8D        ??_application_intialize 0000  
                          _main 1066                           fsr1l 0FE1                           start 0000  

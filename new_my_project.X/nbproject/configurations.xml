@@ -17,6 +17,10 @@
           <itemPath>ECU_Layer/Keypad/ecu_keypad_cfg.h</itemPath>
           <itemPath>ECU_Layer/Keypad/ecu_keypad.h</itemPath>
         </logicalFolder>
+        <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
+          <itemPath>ECU_Layer/LCD/ecu_lcd.h</itemPath>
+          <itemPath>ECU_Layer/LCD/ecu_lcd_cfg.h</itemPath>
+        </logicalFolder>
         <logicalFolder name="f1" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.h</itemPath>
           <itemPath>ECU_Layer/LED/ecu_led_cfg.h</itemPath>
@@ -57,7 +61,12 @@
           <itemPath>ECU_Layer/DC_Motor/ecu_dc_motor.c</itemPath>
         </logicalFolder>
         <logicalFolder name="Keypad" displayName="Keypad" projectFiles="true">
+          <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
+          </logicalFolder>
           <itemPath>ECU_Layer/Keypad/ecu_keypad.c</itemPath>
+        </logicalFolder>
+        <logicalFolder name="LCD" displayName="LCD" projectFiles="true">
+          <itemPath>ECU_Layer/LCD/ecu_lcd.c</itemPath>
         </logicalFolder>
         <logicalFolder name="f1" displayName="LED" projectFiles="true">
           <itemPath>ECU_Layer/LED/ecu_led.c</itemPath>
@@ -92,6 +101,7 @@
     <Elem>7_Segment</Elem>
     <Elem>ECU_Layer/7_Segment</Elem>
     <Elem>ECU_Layer/Keypad</Elem>
+    <Elem>ECU_Layer/LCD</Elem>
   </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>

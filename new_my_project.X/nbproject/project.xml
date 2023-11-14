@@ -17,6 +17,7 @@
                 <sourceRootElem>7_Segment</sourceRootElem>
                 <sourceRootElem>ECU_Layer/7_Segment</sourceRootElem>
                 <sourceRootElem>ECU_Layer/Keypad</sourceRootElem>
+                <sourceRootElem>ECU_Layer/LCD</sourceRootElem>
             </sourceRootList>
             <confList>
                 <confElem>
