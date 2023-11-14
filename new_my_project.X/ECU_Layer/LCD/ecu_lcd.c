@@ -20,11 +20,16 @@
  */
 Std_ReturnType lcd_4bit_initialize               (const lcd_4bit_t *_lcd_){
     Std_ReturnType ret = E_OK;
+    uint8 l_data_pins_counter = ZERO_INIT;
     if(NULL == _lcd_){
         ret = E_NOT_OK;
     }
     else{
-        
+        ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
+        ret = gpio_pin_intialize(&(_lcd_->lcd_en));
+        for(l_data_pins_counter = 0 ; l_data_pins_counter<4 ; l_data_pins_counter++){
+            ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
+        }
     }
     
     
@@ -175,11 +180,16 @@ Std_ReturnType lcd_4bit_send_custome_chr         (const lcd_4bit_t *_lcd_ ,uint8
  */
 Std_ReturnType lcd_8bit_initialize               (const lcd_8bit_t *_lcd_){
     Std_ReturnType ret = E_OK;
+    uint8 l_data_pins_counter = ZERO_INIT;
     if(NULL == _lcd_){
         ret = E_NOT_OK;
     }
     else{
-        
+        ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
+        ret = gpio_pin_intialize(&(_lcd_->lcd_en));
+        for(l_data_pins_counter = 0 ; l_data_pins_counter<8 ; l_data_pins_counter++){
+            ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
+        }
     }
     
     

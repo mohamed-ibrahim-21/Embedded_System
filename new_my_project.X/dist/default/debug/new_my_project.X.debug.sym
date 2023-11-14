@@ -229,7 +229,7 @@ dataCOMRAM 1 25 COMRAM 1 1
 cinit 1012 1073 CODE 1012 0
 %locals
 dist/default/debug\new_my_project.X.debug.o
-C:\Users\mibra\AppData\Local\Temp\xcAsm2s.\driver_tmp_1.s
+C:\Users\mibra\AppData\Local\Temp\xcAsk2s.\driver_tmp_1.s
 2745 1012 0 CODE 0
 2747 1012 0 CODE 0
 2750 1012 0 CODE 0

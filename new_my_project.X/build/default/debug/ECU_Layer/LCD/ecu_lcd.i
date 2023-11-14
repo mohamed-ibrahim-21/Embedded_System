@@ -4726,12 +4726,7 @@ Std_ReturnType gpio_port_toggle_logic (port_index_t port);
 
 # 1 "ECU_Layer/LCD/ecu_lcd_cfg.h" 1
 # 13 "ECU_Layer/LCD/ecu_lcd.h" 2
-
-
-
-
-
-
+# 32 "ECU_Layer/LCD/ecu_lcd.h"
 typedef struct{
     pin_config_t lcd_rs;
     pin_config_t lcd_en;
@@ -4767,59 +4762,195 @@ void convert_int_to_string (uint32 value, uint8 *str);
 # 9 "ECU_Layer/LCD/ecu_lcd.c" 2
 # 21 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 l_data_pins_counter = 0;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+        ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
+        ret = gpio_pin_intialize(&(_lcd_->lcd_en));
+        for(l_data_pins_counter = 0 ; l_data_pins_counter<4 ; l_data_pins_counter++){
+            ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
+        }
+    }
 
+
+    return ret;
 }
-# 33 "ECU_Layer/LCD/ecu_lcd.c"
+# 47 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_4bit_send_command (const lcd_4bit_t *_lcd_ ,uint8 command){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 45 "ECU_Layer/LCD/ecu_lcd.c"
+# 68 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_4bit_send_char_data (const lcd_4bit_t *_lcd_ ,uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 59 "ECU_Layer/LCD/ecu_lcd.c"
+# 91 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_4bit_send_char_data_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 71 "ECU_Layer/LCD/ecu_lcd.c"
+# 112 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_4bit_send_string (const lcd_4bit_t *_lcd_ ,uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 85 "ECU_Layer/LCD/ecu_lcd.c"
+# 135 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_4bit_send_string_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 100 "ECU_Layer/LCD/ecu_lcd.c"
+# 159 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_4bit_send_custome_chr (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 113 "ECU_Layer/LCD/ecu_lcd.c"
+# 181 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_8bit_initialize (const lcd_8bit_t *_lcd_){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    uint8 l_data_pins_counter = 0;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
+        ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
+        ret = gpio_pin_intialize(&(_lcd_->lcd_en));
+        for(l_data_pins_counter = 0 ; l_data_pins_counter<8 ; l_data_pins_counter++){
+            ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
+        }
+    }
 
+
+    return ret;
 }
-# 125 "ECU_Layer/LCD/ecu_lcd.c"
+# 207 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_8bit_send_command (const lcd_8bit_t *_lcd_ ,uint8 command){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 137 "ECU_Layer/LCD/ecu_lcd.c"
+# 228 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_8bit_send_char_data (const lcd_8bit_t *_lcd_ ,uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 151 "ECU_Layer/LCD/ecu_lcd.c"
+# 251 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_8bit_send_char_data_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 163 "ECU_Layer/LCD/ecu_lcd.c"
+# 272 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_8bit_send_string (const lcd_8bit_t *_lcd_ ,uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 177 "ECU_Layer/LCD/ecu_lcd.c"
+# 295 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_8bit_send_string_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
-# 192 "ECU_Layer/LCD/ecu_lcd.c"
+# 319 "ECU_Layer/LCD/ecu_lcd.c"
 Std_ReturnType lcd_8bit_send_custome_chr (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
+    Std_ReturnType ret = (Std_ReturnType)0x01;
+    if(((void*)0) == _lcd_){
+        ret = (Std_ReturnType)0x00;
+    }
+    else{
 
+    }
+
+
+    return ret;
 }
 
 
