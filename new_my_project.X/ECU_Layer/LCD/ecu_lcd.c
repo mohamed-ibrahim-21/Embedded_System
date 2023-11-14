@@ -10,6 +10,7 @@
 
 static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_command);
 static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *_lcd_);
+static Std_ReturnType lcd_8bit_send_enable_signal(const lcd_8bit_t *_lcd_);
 
 /************************************LCD_4BIT*********************************/
 
@@ -216,11 +217,16 @@ Std_ReturnType lcd_8bit_initialize               (const lcd_8bit_t *_lcd_){
  */
 Std_ReturnType lcd_8bit_send_command             (const lcd_8bit_t *_lcd_ ,uint8 command){
     Std_ReturnType ret = E_OK;
+    uint8 l_pin_counter = ZERO_INIT;
     if(NULL == _lcd_){
         ret = E_NOT_OK;
     }
     else{
         ret = gpio_pin_write_logic(&(_lcd_->lcd_rs), GPIO_LOW);
+        for(l_pin_counter = 0 ; l_pin_counter < 8 ; l_pin_counter++){
+            ret = gpio_pin_write_logic(&(_lcd_->lcd_data[l_pin_counter]), (command >> l_pin_counter) & (uint8)0x01);
+        }
+        ret = lcd_8bit_send_enable_signal(_lcd_);
     }
     
     
@@ -237,11 +243,16 @@ Std_ReturnType lcd_8bit_send_command             (const lcd_8bit_t *_lcd_ ,uint8
  */
 Std_ReturnType lcd_8bit_send_char_data           (const lcd_8bit_t *_lcd_ ,uint8 data){
     Std_ReturnType ret = E_OK;
+    uint8 l_pin_counter = ZERO_INIT;
     if(NULL == _lcd_){
         ret = E_NOT_OK;
     }
     else{
-        
+        ret = gpio_pin_write_logic(&(_lcd_->lcd_rs), GPIO_HIGH);
+        for(l_pin_counter = 0 ; l_pin_counter < 8 ; l_pin_counter++){
+            ret = gpio_pin_write_logic(&(_lcd_->lcd_data[l_pin_counter]), (data >> l_pin_counter) & (uint8)0x01);
+        }
+        ret = lcd_8bit_send_enable_signal(_lcd_);
     }
     
     
@@ -366,10 +377,16 @@ static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_comma
 
 static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *_lcd_){
     Std_ReturnType ret = E_OK;
-    ret = gpio_pin_write_logic(&(_lcd_->lcd_data[0]), GPIO_HIGH);
+    ret = gpio_pin_write_logic(&(_lcd_->lcd_en), GPIO_HIGH);
     __delay_us(5);
-    ret = gpio_pin_write_logic(&(_lcd_->lcd_data[0]), GPIO_LOW);
-    
-    
+    ret = gpio_pin_write_logic(&(_lcd_->lcd_en), GPIO_LOW);
+    return ret;
+}
+
+static Std_ReturnType lcd_8bit_send_enable_signal(const lcd_8bit_t *_lcd_){
+    Std_ReturnType ret = E_OK;
+    ret = gpio_pin_write_logic(&(_lcd_->lcd_en), GPIO_HIGH);
+    __delay_us(5);
+    ret = gpio_pin_write_logic(&(_lcd_->lcd_en), GPIO_LOW);
     return ret;
 }
