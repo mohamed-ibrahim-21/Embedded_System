@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.45 build 20230818022343 
-                                                                                               Tue Nov 14 18:08:17 2023
+                                                                                               Tue Nov 14 18:10:27 2023
 
 Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1 
      1                           	processor	18F4620
@@ -413,13 +413,13 @@ Microchip MPLAB XC8 C Compiler v2.45 (Free license) build 20230818022343 Og1
    394   00155C                     
    395                           ;application.c: 100:     application_intialize();
    396   00155C  ECBA  F00A         	call	_application_intialize	;wreg free
-   397   001560  0E1F               	movlw	low _lcd_2
-   398   001562  6E39               	movwf	lcd_8bit_send_char_data@_lcd_^0,c
-   399   001564  0E41               	movlw	65
-   400   001566  6E3A               	movwf	lcd_8bit_send_char_data@data^0,c
-   401   001568  EC99  F009         	call	_lcd_8bit_send_char_data	;wreg free
-   402   00156C                     l285:
-   403   00156C  EFB6  F00A         	goto	l285
+   397   001560                     l2201:
+   398   001560  0E1F               	movlw	low _lcd_2
+   399   001562  6E39               	movwf	lcd_8bit_send_char_data@_lcd_^0,c
+   400   001564  0E41               	movlw	65
+   401   001566  6E3A               	movwf	lcd_8bit_send_char_data@data^0,c
+   402   001568  EC99  F009         	call	_lcd_8bit_send_char_data	;wreg free
+   403   00156C  EFB0  F00A         	goto	l2201
    404   001570  EF00  F000         	goto	start
    405   001574                     __end_of_main:
    406                           	callstack 0
@@ -2041,14 +2041,13 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.45 build 20230818022343 
-Symbol Table                                                                                   Tue Nov 14 18:08:17 2023
+Symbol Table                                                                                   Tue Nov 14 18:10:27 2023
 
                                     l210 147A                                      l203 1136  
                                     l312 14D2                                      l401 155A  
                                     l229 1246                                      l291 1584  
                                     l363 13A6                                      l356 141C  
-                                    l349 1330                                      l285 156C  
-                                    l286 156C                                      u920 1026  
+                                    l349 1330                                      u920 1026  
                                     u904 1192                                      u921 1022  
                                     u905 118E                                      u930 1046  
                                     u914 11E8                                      u931 1042  

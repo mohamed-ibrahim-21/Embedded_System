@@ -26,6 +26,11 @@
 #define _LCD_CGRAM_START                0x40
 #define _LCD_DDRAM_START                0x80
 
+#define ROW1 1
+#define ROW2 2
+#define ROW3 3
+#define ROW4 4
+
 /* Section : Macro Functions Declarations*/
 
 /* Section : Data Type Declarations*/

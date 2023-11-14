@@ -447,13 +447,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "100
 [; ;application.c: 100:     application_intialize();
 [e ( _application_intialize ..  ]
-"101
-[; ;application.c: 101:     ret = lcd_8bit_send_char_data(&lcd_2 , 'A');
-[e = _ret ( _lcd_8bit_send_char_data (2 , -> &U _lcd_2 `*CS280 -> -> 65 `ui `uc ]
 "102
 [; ;application.c: 102:     while(1){
 [e :U 283 ]
 {
+"103
+[; ;application.c: 103:         ret = lcd_8bit_send_char_data(&lcd_2 , 'A');
+[e = _ret ( _lcd_8bit_send_char_data (2 , -> &U _lcd_2 `*CS280 -> -> 65 `ui `uc ]
 "105
 [; ;application.c: 105:     }
 }

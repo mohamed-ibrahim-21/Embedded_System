@@ -294,7 +294,7 @@ dataCOMRAM 1 49 COMRAM 1 1
 text9 1012 1585 CODE 1012 0
 %locals
 dist/default/debug\new_my_project.X.debug.o
-C:\Users\mibra\AppData\Local\Temp\xcBsna8.1\driver_tmp_1.s
+C:\Users\mibra\AppData\Local\Temp\xcAslm4.\driver_tmp_1.s
 2783 14D4 0 CODE 0
 2785 14D4 0 CODE 0
 2788 14D4 0 CODE 0
@@ -327,9 +327,7 @@ application.c
 98 155C 0 CODE 0
 99 155C 0 CODE 0
 100 155C 0 CODE 0
-101 1560 0 CODE 0
-102 156C 0 CODE 0
-105 156C 0 CODE 0
+103 1560 0 CODE 0
 ECU_Layer/LCD/ecu_lcd.c
 257 1332 0 CODE 0
 258 1332 0 CODE 0

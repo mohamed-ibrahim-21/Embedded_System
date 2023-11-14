@@ -5009,9 +5009,9 @@ lcd_8bit_t lcd_2 = {
 int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
     application_intialize();
-    ret = lcd_8bit_send_char_data(&lcd_2 , 'A');
-    while(1){
 
+    while(1){
+        ret = lcd_8bit_send_char_data(&lcd_2 , 'A');
 
     }
 
