@@ -5010,9 +5010,10 @@ int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
     application_intialize();
 
-    while(1){
-        ret = lcd_8bit_send_char_data_position(&lcd_2 , 2 , 2, 'A');
 
+    while(1){
+       ret = lcd_8bit_send_string_position(&lcd_2, 1 , 1 , "ahmed");
+       ret = lcd_8bit_send_string_position(&lcd_2, 2 , 1 , "mohamed");
     }
 
     return (0);

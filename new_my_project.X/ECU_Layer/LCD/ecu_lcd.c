@@ -8,6 +8,8 @@
 /********************* Section : Includes *************************************/
 #include "ecu_lcd.h"
 
+/***********************************static functions **********************************/
+
 static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_command);
 static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *_lcd_);
 static Std_ReturnType lcd_8bit_send_enable_signal(const lcd_8bit_t *_lcd_);
@@ -311,7 +313,9 @@ Std_ReturnType lcd_8bit_send_string              (const lcd_8bit_t *_lcd_ ,uint8
         ret = E_NOT_OK;
     }
     else{
-        
+        while(*str){
+            ret = lcd_8bit_send_char_data(_lcd_, *str++);
+        }
     }
     
     
@@ -334,10 +338,11 @@ Std_ReturnType lcd_8bit_send_string_position     (const lcd_8bit_t *_lcd_ ,uint8
         ret = E_NOT_OK;
     }
     else{
-        
+        ret = lcd_8bit_set_cursor(_lcd_, row, column);
+        while(*str){
+            ret = lcd_8bit_send_char_data(_lcd_, *str++);
+        }
     }
-    
-    
     return ret;
 }
 
@@ -422,3 +427,6 @@ static Std_ReturnType lcd_8bit_set_cursor (const lcd_8bit_t *_lcd_, uint8 row , 
     }
     return ret;
 }
+
+
+
