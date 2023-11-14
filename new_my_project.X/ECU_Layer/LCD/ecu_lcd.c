@@ -14,6 +14,7 @@ static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_comma
 static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *_lcd_);
 static Std_ReturnType lcd_8bit_send_enable_signal(const lcd_8bit_t *_lcd_);
 static Std_ReturnType lcd_8bit_set_cursor (const lcd_8bit_t *_lcd_, uint8 row , uint8 coulmn);
+static Std_ReturnType lcd_4bit_set_cursor (const lcd_4bit_t *_lcd_, uint8 row , uint8 coulmn);
 
 /************************************LCD_4BIT*********************************/
 
@@ -36,6 +37,21 @@ Std_ReturnType lcd_4bit_initialize               (const lcd_4bit_t *_lcd_){
         for(l_data_pins_counter = 0 ; l_data_pins_counter<4 ; l_data_pins_counter++){
             ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
         }
+        
+        __delay_ms(20);
+        ret = lcd_4bit_send_command(_lcd_, _LCD_8BIT_MODE_2_LINE);
+        __delay_ms(5);
+        ret = lcd_4bit_send_command(_lcd_, _LCD_8BIT_MODE_2_LINE);
+        __delay_us(150); 
+        ret = lcd_4bit_send_command(_lcd_, _LCD_8BIT_MODE_2_LINE);
+        
+        ret = lcd_4bit_send_command(_lcd_, _LCD_CLEAR);
+        ret = lcd_4bit_send_command(_lcd_, _LCD_RETURN_HOME);
+        ret = lcd_4bit_send_command(_lcd_, _LCD_ENTRY_MODE);
+        ret = lcd_4bit_send_command(_lcd_, _LCD_CURSOR_OFF_DISPLAY_ON);
+        ret = lcd_4bit_send_command(_lcd_, _LCD_4BIT_MODE_2_LINE);
+        ret = lcd_4bit_send_command(_lcd_, 0x80);//start point in lcd
+        
     }
     
     
@@ -428,5 +444,20 @@ static Std_ReturnType lcd_8bit_set_cursor (const lcd_8bit_t *_lcd_, uint8 row , 
     return ret;
 }
 
-
+static Std_ReturnType lcd_4bit_set_cursor (const lcd_4bit_t *_lcd_, uint8 row , uint8 coulmn){
+    Std_ReturnType ret = E_OK;
+    coulmn--;
+    switch (row){
+        case ROW1 : ret = lcd_4bit_send_command(_lcd_ , (0x80 + coulmn));
+        break;
+        case ROW2 : ret = lcd_4bit_send_command(_lcd_ , (0xc0 + coulmn));
+        break;
+        case ROW3 : ret = lcd_4bit_send_command(_lcd_ , (0x94 + coulmn));
+        break;
+        case ROW4 : ret = lcd_4bit_send_command(_lcd_ , (0xd4 + coulmn));
+        break;
+        default : ;
+    }
+    return ret;
+}
 

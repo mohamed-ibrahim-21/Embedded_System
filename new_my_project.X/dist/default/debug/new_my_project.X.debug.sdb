@@ -101,14 +101,14 @@ GPIO_DIRECTION_INPUT 1
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
-"59 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
+"74 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
 [e E2811 . `uc
 GPIO_LOW 0
 GPIO_HIGH 1
 ]
 "98 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
 [v _main main `(i  1 e 2 0 ]
-"112
+"111
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -136,21 +136,23 @@ GPIO_HIGH 1
 [v ___omul __omul `(uo  1 e 8 0 ]
 "27 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
 [v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
-"195
+"68
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
+"93
+[v _lcd_4bit_send_char_data lcd_4bit_send_char_data `(uc  1 e 1 0 ]
+"210
 [v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
-"234
+"249
 [v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
-"260
+"275
 [v _lcd_8bit_send_char_data lcd_8bit_send_char_data `(uc  1 e 1 0 ]
-"335
-[v _lcd_8bit_send_string_position lcd_8bit_send_string_position `(uc  1 e 1 0 ]
-"387
+"402
 [v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
-"398
+"413
 [v _lcd_4bit_send_enable_signal lcd_4bit_send_enable_signal `(uc  1 s 1 lcd_4bit_send_enable_signal ]
-"406
+"421
 [v _lcd_8bit_send_enable_signal lcd_8bit_send_enable_signal `(uc  1 s 1 lcd_8bit_send_enable_signal ]
-"414
+"429
 [v _lcd_8bit_set_cursor lcd_8bit_set_cursor `(uc  1 s 1 lcd_8bit_set_cursor ]
 "26 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\MCAL_Layer/GPIO/hel_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
@@ -214,123 +216,86 @@ GPIO_HIGH 1
 "98 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"109
+"108
 } 0
-"335 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
-[v _lcd_8bit_send_string_position lcd_8bit_send_string_position `(uc  1 e 1 0 ]
+"93 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
+[v _lcd_4bit_send_char_data lcd_4bit_send_char_data `(uc  1 e 1 0 ]
 {
-"336
-[v lcd_8bit_send_string_position@ret ret `uc  1 a 1 26 ]
+"94
+[v lcd_4bit_send_char_data@ret ret `uc  1 a 1 13 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"335
-[s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
-[v lcd_8bit_send_string_position@_lcd_ _lcd_ `*.30CS461  1 p 1 22 ]
-[v lcd_8bit_send_string_position@row row `uc  1 p 1 23 ]
-[v lcd_8bit_send_string_position@column column `uc  1 p 1 24 ]
-[v lcd_8bit_send_string_position@str str `*.31uc  1 p 1 25 ]
-"347
+"93
+[s S436 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_send_char_data@_lcd_ _lcd_ `*.30CS436  1 p 1 11 ]
+[v lcd_4bit_send_char_data@data data `uc  1 p 1 12 ]
+"108
 } 0
-"414
-[v _lcd_8bit_set_cursor lcd_8bit_set_cursor `(uc  1 s 1 lcd_8bit_set_cursor ]
-{
-"415
-[v lcd_8bit_set_cursor@ret ret `uc  1 a 1 21 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"414
-[s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
-[v lcd_8bit_set_cursor@_lcd_ _lcd_ `*.30CS461  1 p 1 16 ]
-[v lcd_8bit_set_cursor@row row `uc  1 p 1 17 ]
-[v lcd_8bit_set_cursor@coulmn coulmn `uc  1 p 1 18 ]
-"429
-} 0
-"260
-[v _lcd_8bit_send_char_data lcd_8bit_send_char_data `(uc  1 e 1 0 ]
-{
-"262
-[v lcd_8bit_send_char_data@l_pin_counter l_pin_counter `uc  1 a 1 15 ]
-"261
-[v lcd_8bit_send_char_data@ret ret `uc  1 a 1 14 ]
-[s S24 . 1 `uc 1 port 1 0 :3:0 
-`uc 1 pin 1 0 :3:3 
-`uc 1 direction 1 0 :1:6 
-`uc 1 logic 1 0 :1:7 
-]
-"260
-[s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
-[v lcd_8bit_send_char_data@_lcd_ _lcd_ `*.30CS461  1 p 1 10 ]
-[v lcd_8bit_send_char_data@data data `uc  1 p 1 11 ]
-"276
-} 0
-"112 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
+"111 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 {
-"116
+"115
 } 0
-"195 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
+"210 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
 [v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
 {
-"196
+"211
 [v lcd_8bit_initialize@ret ret `uc  1 a 1 19 ]
-"197
+"212
 [v lcd_8bit_initialize@l_data_pins_counter l_data_pins_counter `uc  1 a 1 18 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"195
+"210
 [s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
 [v lcd_8bit_initialize@_lcd_ _lcd_ `*.30CS461  1 p 1 16 ]
-"224
+"239
 } 0
-"234
+"249
 [v _lcd_8bit_send_command lcd_8bit_send_command `(uc  1 e 1 0 ]
 {
-"236
+"251
 [v lcd_8bit_send_command@l_pin_counter l_pin_counter `uc  1 a 1 15 ]
-"235
+"250
 [v lcd_8bit_send_command@ret ret `uc  1 a 1 14 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"234
+"249
 [s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
 [v lcd_8bit_send_command@_lcd_ _lcd_ `*.30CS461  1 p 1 10 ]
 [v lcd_8bit_send_command@command command `uc  1 p 1 11 ]
-"250
+"265
 } 0
-"406
+"421
 [v _lcd_8bit_send_enable_signal lcd_8bit_send_enable_signal `(uc  1 s 1 lcd_8bit_send_enable_signal ]
 {
-"407
+"422
 [v lcd_8bit_send_enable_signal@ret ret `uc  1 a 1 9 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
 `uc 1 logic 1 0 :1:7 
 ]
-"406
+"421
 [s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
 [v lcd_8bit_send_enable_signal@_lcd_ _lcd_ `*.30CS461  1 p 1 8 ]
-"412
+"427
 } 0
 "27
 [v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
 {
-"29
-[v lcd_4bit_initialize@l_data_pins_counter l_data_pins_counter `uc  1 a 1 13 ]
 "28
-[v lcd_4bit_initialize@ret ret `uc  1 a 1 12 ]
+[v lcd_4bit_initialize@ret ret `uc  1 a 1 17 ]
+"29
+[v lcd_4bit_initialize@l_data_pins_counter l_data_pins_counter `uc  1 a 1 16 ]
 [s S24 . 1 `uc 1 port 1 0 :3:0 
 `uc 1 pin 1 0 :3:3 
 `uc 1 direction 1 0 :1:6 
@@ -338,8 +303,55 @@ GPIO_HIGH 1
 ]
 "27
 [s S436 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
-[v lcd_4bit_initialize@_lcd_ _lcd_ `*.30CS436  1 p 1 11 ]
-"43
+[v lcd_4bit_initialize@_lcd_ _lcd_ `*.30CS436  1 p 1 14 ]
+"58
+} 0
+"68
+[v _lcd_4bit_send_command lcd_4bit_send_command `(uc  1 e 1 0 ]
+{
+"69
+[v lcd_4bit_send_command@ret ret `uc  1 a 1 13 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"68
+[s S436 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_send_command@_lcd_ _lcd_ `*.30CS436  1 p 1 11 ]
+[v lcd_4bit_send_command@command command `uc  1 p 1 12 ]
+"83
+} 0
+"402
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
+{
+"403
+[v lcd_send_4bits@ret ret `uc  1 a 1 10 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"402
+[s S436 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_send_4bits@_lcd_ _lcd_ `*.30CS436  1 p 1 8 ]
+[v lcd_send_4bits@_data_command _data_command `uc  1 p 1 9 ]
+"410
+} 0
+"413
+[v _lcd_4bit_send_enable_signal lcd_4bit_send_enable_signal `(uc  1 s 1 lcd_4bit_send_enable_signal ]
+{
+"414
+[v lcd_4bit_send_enable_signal@ret ret `uc  1 a 1 9 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"413
+[s S436 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_send_enable_signal@_lcd_ _lcd_ `*.30CS436  1 p 1 8 ]
+"419
 } 0
 "54 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\MCAL_Layer/GPIO/hel_gpio.c
 [v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]

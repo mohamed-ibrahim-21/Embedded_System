@@ -24,9 +24,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./application.h
 [; ;./application.h: 26: void application_intialize(void);
 [v _application_intialize `(v ~T0 @X0 0 ef ]
-"63 ./ECU_Layer/LCD/ecu_lcd.h
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 63: Std_ReturnType lcd_8bit_send_string_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str);
-[v _lcd_8bit_send_string_position `(uc ~T0 @X0 0 ef4`*CS280`uc`uc`*uc ]
+"52 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 52: Std_ReturnType lcd_4bit_send_char_data (const lcd_4bit_t *_lcd_ ,uint8 data);
+[v _lcd_4bit_send_char_data `(uc ~T0 @X0 0 ef2`*CS279`uc ]
 "50
 [; ;./ECU_Layer/LCD/ecu_lcd.h: 50: Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_);
 [v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS279 ]
@@ -447,49 +447,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "100
 [; ;application.c: 100:     application_intialize();
 [e ( _application_intialize ..  ]
+"101
+[; ;application.c: 101:     ret = lcd_4bit_send_char_data(&lcd_1, 'a');
+[e = _ret ( _lcd_4bit_send_char_data (2 , -> &U _lcd_1 `*CS279 -> -> 97 `ui `uc ]
 "103
 [; ;application.c: 103:     while(1){
 [e :U 283 ]
 {
-"104
-[; ;application.c: 104:        ret = lcd_8bit_send_string_position(&lcd_2, 1 , 1 , "ahmed");
-[e = _ret ( _lcd_8bit_send_string_position (4 , , , -> &U _lcd_2 `*CS280 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
 "105
-[; ;application.c: 105:        ret = lcd_8bit_send_string_position(&lcd_2, 2 , 1 , "mohamed");
-[e = _ret ( _lcd_8bit_send_string_position (4 , , , -> &U _lcd_2 `*CS280 -> -> 2 `i `uc -> -> 1 `i `uc :s 2C ]
-"106
-[; ;application.c: 106:     }
+[; ;application.c: 105:     }
 }
 [e :U 282 ]
 [e $U 283  ]
 [e :U 284 ]
-"108
-[; ;application.c: 108:     return (0);
+"107
+[; ;application.c: 107:     return (0);
 [e ) -> 0 `i ]
 [e $UE 281  ]
-"109
-[; ;application.c: 109: }
+"108
+[; ;application.c: 108: }
 [e :UE 281 ]
 }
-"112
-[; ;application.c: 112: void application_intialize(void){
+"111
+[; ;application.c: 111: void application_intialize(void){
 [v _application_intialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _application_intialize ]
 [f ]
-"113
-[; ;application.c: 113:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"112
+[; ;application.c: 112:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"114
-[; ;application.c: 114:     ret = lcd_4bit_initialize(&lcd_1);
+"113
+[; ;application.c: 113:     ret = lcd_4bit_initialize(&lcd_1);
 [e = _ret ( _lcd_4bit_initialize (1 -> &U _lcd_1 `*CS279 ]
-"115
-[; ;application.c: 115:     ret = lcd_8bit_initialize(&lcd_2);
+"114
+[; ;application.c: 114:     ret = lcd_8bit_initialize(&lcd_2);
 [e = _ret ( _lcd_8bit_initialize (1 -> &U _lcd_2 `*CS280 ]
-"116
-[; ;application.c: 116: }
+"115
+[; ;application.c: 115: }
 [e :UE 285 ]
 }
-[a 1C 97 104 109 101 100 0 ]
-[a 2C 109 111 104 97 109 101 100 0 ]
