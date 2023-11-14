@@ -24,7 +24,10 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./application.h
 [; ;./application.h: 26: void application_intialize(void);
 [v _application_intialize `(v ~T0 @X0 0 ef ]
-"45 ./ECU_Layer/LCD/ecu_lcd.h
+"55 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 55: Std_ReturnType lcd_8bit_send_char_data (const lcd_8bit_t *_lcd_ ,uint8 data);
+[v _lcd_8bit_send_char_data `(uc ~T0 @X0 0 ef2`*CS280`uc ]
+"45
 [; ;./ECU_Layer/LCD/ecu_lcd.h: 45: Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_);
 [v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS279 ]
 "53
@@ -444,6 +447,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "100
 [; ;application.c: 100:     application_intialize();
 [e ( _application_intialize ..  ]
+"101
+[; ;application.c: 101:     ret = lcd_8bit_send_char_data(&lcd_2 , 'A');
+[e = _ret ( _lcd_8bit_send_char_data (2 , -> &U _lcd_2 `*CS280 -> -> 65 `ui `uc ]
 "102
 [; ;application.c: 102:     while(1){
 [e :U 283 ]

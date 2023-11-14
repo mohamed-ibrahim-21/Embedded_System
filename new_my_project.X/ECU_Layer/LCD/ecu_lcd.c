@@ -201,6 +201,19 @@ Std_ReturnType lcd_8bit_initialize               (const lcd_8bit_t *_lcd_){
         for(l_data_pins_counter = 0 ; l_data_pins_counter<8 ; l_data_pins_counter++){
             ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
         }
+        __delay_ms(20);
+        ret = lcd_8bit_send_command(_lcd_, _LCD_8BIT_MODE_2_LINE);
+        __delay_ms(5);
+        ret = lcd_8bit_send_command(_lcd_, _LCD_8BIT_MODE_2_LINE);
+        __delay_us(150); 
+        ret = lcd_8bit_send_command(_lcd_, _LCD_8BIT_MODE_2_LINE);
+        
+        ret = lcd_8bit_send_command(_lcd_, _LCD_CLEAR);
+        ret = lcd_8bit_send_command(_lcd_, _LCD_RETURN_HOME);
+        ret = lcd_8bit_send_command(_lcd_, _LCD_ENTRY_MODE);
+        ret = lcd_8bit_send_command(_lcd_, _LCD_CURSOR_OFF_DISPLAY_ON);
+        ret = lcd_8bit_send_command(_lcd_, _LCD_8BIT_MODE_2_LINE);
+        ret = lcd_8bit_send_command(_lcd_, 0x80);//start point in lcd
     }
     
     
