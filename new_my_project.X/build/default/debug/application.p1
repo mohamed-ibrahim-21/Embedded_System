@@ -24,9 +24,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./application.h
 [; ;./application.h: 26: void application_intialize(void);
 [v _application_intialize `(v ~T0 @X0 0 ef ]
-"53 ./ECU_Layer/LCD/ecu_lcd.h
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 53: Std_ReturnType lcd_4bit_send_char_data_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data);
-[v _lcd_4bit_send_char_data_position `(uc ~T0 @X0 0 ef4`*CS279`uc`uc`uc ]
+"55 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 55: Std_ReturnType lcd_4bit_send_string_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str);
+[v _lcd_4bit_send_string_position `(uc ~T0 @X0 0 ef4`*CS279`uc`uc`*uc ]
 "50
 [; ;./ECU_Layer/LCD/ecu_lcd.h: 50: Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_);
 [v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS279 ]
@@ -452,11 +452,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 283 ]
 {
 "103
-[; ;application.c: 103:        ret = lcd_4bit_send_char_data_position(&lcd_1 , 1 , 1 , 'd');
-[e = _ret ( _lcd_4bit_send_char_data_position (4 , , , -> &U _lcd_1 `*CS279 -> -> 1 `i `uc -> -> 1 `i `uc -> -> 100 `ui `uc ]
+[; ;application.c: 103:        ret = lcd_4bit_send_string_position(&lcd_1 , 1 , 1 , "mohamed");
+[e = _ret ( _lcd_4bit_send_string_position (4 , , , -> &U _lcd_1 `*CS279 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
 "104
-[; ;application.c: 104:        ret = lcd_4bit_send_char_data_position(&lcd_1 , 2 , 1 , 'a');
-[e = _ret ( _lcd_4bit_send_char_data_position (4 , , , -> &U _lcd_1 `*CS279 -> -> 2 `i `uc -> -> 1 `i `uc -> -> 97 `ui `uc ]
+[; ;application.c: 104:        ret = lcd_4bit_send_string_position(&lcd_1 , 2 , 1 , "asfddshg");
+[e = _ret ( _lcd_4bit_send_string_position (4 , , , -> &U _lcd_1 `*CS279 -> -> 2 `i `uc -> -> 1 `i `uc :s 2C ]
 "106
 [; ;application.c: 106:     }
 }
@@ -491,3 +491,5 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;application.c: 116: }
 [e :UE 285 ]
 }
+[a 2C 97 115 102 100 100 115 104 103 0 ]
+[a 1C 109 111 104 97 109 101 100 0 ]

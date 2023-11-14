@@ -100,8 +100,8 @@ int main() {
     application_intialize();
 
     while(1){
-       ret = lcd_4bit_send_char_data_position(&lcd_1 , 1 , 1 , 'd');
-       ret = lcd_4bit_send_char_data_position(&lcd_1 , 2 , 1 , 'a');
+       ret = lcd_4bit_send_string_position(&lcd_1 , 1 , 1 , "mohamed");
+       ret = lcd_4bit_send_string_position(&lcd_1 , 2 , 1 , "asfddshg");
 
     }
     

@@ -146,7 +146,9 @@ Std_ReturnType lcd_4bit_send_string              (const lcd_4bit_t *_lcd_ ,uint8
         ret = E_NOT_OK;
     }
     else{
-        
+        while(*str){
+            ret = lcd_4bit_send_char_data(_lcd_, *str++);
+        }
     }
     
     
@@ -169,7 +171,10 @@ Std_ReturnType lcd_4bit_send_string_position     (const lcd_4bit_t *_lcd_ ,uint8
         ret = E_NOT_OK;
     }
     else{
-        
+        ret = lcd_4bit_set_cursor(_lcd_, row , column);
+        while(*str){
+            ret = lcd_4bit_send_char_data(_lcd_, *str++);
+        }
     }
     
     
