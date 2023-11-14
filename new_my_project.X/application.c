@@ -100,8 +100,8 @@ int main() {
     application_intialize();
     
     while(1){
-        ret = lcd_8bit_send_char_data(&lcd_2 , 'A');
-        
+        ret = lcd_8bit_send_char_data_position(&lcd_2 , 2 , 2, 'A');
+         
     }
     
     return (EXIT_SUCCESS);

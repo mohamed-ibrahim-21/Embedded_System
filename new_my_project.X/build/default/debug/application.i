@@ -4873,7 +4873,7 @@ Std_ReturnType keypad_get_value (const keypad_t *_keypad_obj, uint8 *value);
 # 13 "./ECU_Layer/LCD/ecu_lcd.h"
 # 1 "./ECU_Layer/LCD/ecu_lcd_cfg.h" 1
 # 13 "./ECU_Layer/LCD/ecu_lcd.h" 2
-# 32 "./ECU_Layer/LCD/ecu_lcd.h"
+# 37 "./ECU_Layer/LCD/ecu_lcd.h"
 typedef struct{
     pin_config_t lcd_rs;
     pin_config_t lcd_en;
@@ -5011,7 +5011,7 @@ int main() {
     application_intialize();
 
     while(1){
-        ret = lcd_8bit_send_char_data(&lcd_2 , 'A');
+        ret = lcd_8bit_send_char_data_position(&lcd_2 , 2 , 2, 'A');
 
     }
 

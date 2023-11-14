@@ -289,7 +289,8 @@ Std_ReturnType lcd_8bit_send_char_data_position  (const lcd_8bit_t *_lcd_ ,uint8
         ret = E_NOT_OK;
     }
     else{
-        
+        ret = lcd_8bit_set_cursor(_lcd_, row, column);
+        ret = lcd_8bit_send_char_data(_lcd_, data);
     }
     
     
