@@ -19,7 +19,16 @@
  *          (E_NOT_OK)  : the function has issue 
  */
 Std_ReturnType lcd_4bit_initialize               (const lcd_4bit_t *_lcd_){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -31,7 +40,16 @@ Std_ReturnType lcd_4bit_initialize               (const lcd_4bit_t *_lcd_){
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_4bit_send_command             (const lcd_4bit_t *_lcd_ ,uint8 command){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -43,7 +61,16 @@ Std_ReturnType lcd_4bit_send_command             (const lcd_4bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_4bit_send_char_data           (const lcd_4bit_t *_lcd_ ,uint8 data){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -57,7 +84,16 @@ Std_ReturnType lcd_4bit_send_char_data           (const lcd_4bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_4bit_send_char_data_position  (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -69,7 +105,16 @@ Std_ReturnType lcd_4bit_send_char_data_position  (const lcd_4bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_4bit_send_string              (const lcd_4bit_t *_lcd_ ,uint8 *str){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -83,7 +128,16 @@ Std_ReturnType lcd_4bit_send_string              (const lcd_4bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue 
  */
 Std_ReturnType lcd_4bit_send_string_position     (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -98,7 +152,16 @@ Std_ReturnType lcd_4bit_send_string_position     (const lcd_4bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue 
  */
 Std_ReturnType lcd_4bit_send_custome_chr         (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /*********************************LCD_8bit**************************************/
@@ -111,7 +174,16 @@ Std_ReturnType lcd_4bit_send_custome_chr         (const lcd_4bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_8bit_initialize               (const lcd_8bit_t *_lcd_){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -123,7 +195,16 @@ Std_ReturnType lcd_8bit_initialize               (const lcd_8bit_t *_lcd_){
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_8bit_send_command             (const lcd_8bit_t *_lcd_ ,uint8 command){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -135,7 +216,16 @@ Std_ReturnType lcd_8bit_send_command             (const lcd_8bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_8bit_send_char_data           (const lcd_8bit_t *_lcd_ ,uint8 data){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -149,7 +239,16 @@ Std_ReturnType lcd_8bit_send_char_data           (const lcd_8bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue 
  */
 Std_ReturnType lcd_8bit_send_char_data_position  (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -161,7 +260,16 @@ Std_ReturnType lcd_8bit_send_char_data_position  (const lcd_8bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue 
  */
 Std_ReturnType lcd_8bit_send_string              (const lcd_8bit_t *_lcd_ ,uint8 *str){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -175,7 +283,16 @@ Std_ReturnType lcd_8bit_send_string              (const lcd_8bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue
  */
 Std_ReturnType lcd_8bit_send_string_position     (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /**
@@ -190,7 +307,16 @@ Std_ReturnType lcd_8bit_send_string_position     (const lcd_8bit_t *_lcd_ ,uint8
  *          (E_NOT_OK)  : the function has issue 
  */
 Std_ReturnType lcd_8bit_send_custome_chr         (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
+    Std_ReturnType ret = E_OK;
+    if(NULL == _lcd_){
+        ret = E_NOT_OK;
+    }
+    else{
+        
+    }
     
+    
+    return ret;
 }
 
 /*******************************************CONVERT_TO_STRING*******************************************/
