@@ -75,9 +75,40 @@ PORTC_INDEX 2
 PORTD_INDEX 3
 PORTE_INDEX 4
 ]
-"12 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
+"11 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
+[e E2829 . `uc
+PORTA_INDEX 0
+PORTB_INDEX 1
+PORTC_INDEX 2
+PORTD_INDEX 3
+PORTE_INDEX 4
+]
+[e E2819 . `uc
+GPIO_PIN0 0
+GPIO_PIN1 1
+GPIO_PIN2 2
+GPIO_PIN3 3
+GPIO_PIN4 4
+GPIO_PIN5 5
+GPIO_PIN6 6
+GPIO_PIN7 7
+]
+[e E2815 . `uc
+GPIO_DIRECTION_OUTPUT 0
+GPIO_DIRECTION_INPUT 1
+]
+[e E2811 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"55 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
+[e E2811 . `uc
+GPIO_LOW 0
+GPIO_HIGH 1
+]
+"98 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
 [v _main main `(i  1 e 2 0 ]
-"25
+"111
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\fleq.c
 [v ___fleq __fleq `(b  1 e 0 0 ]
@@ -103,6 +134,14 @@ PORTE_INDEX 4
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "91 C:\Program Files\Microchip\xc8\v2.45\pic\sources\c99\common\Umul64.c
 [v ___omul __omul `(uo  1 e 8 0 ]
+"23 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
+[v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
+"191
+[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
+"356
+[v _lcd_send_4bits lcd_send_4bits `(uc  1 s 1 lcd_send_4bits ]
+"367
+[v _lcd_4bit_send_enable_signal lcd_4bit_send_enable_signal `(uc  1 s 1 lcd_4bit_send_enable_signal ]
 "26 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\MCAL_Layer/GPIO/hel_gpio.c
 [v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
 "54
@@ -113,6 +152,17 @@ PORTE_INDEX 4
 [v _gpio_pin_read_logic gpio_pin_read_logic `(uc  1 e 1 0 ]
 "146
 [v _gpio_pin_toggle_logic gpio_pin_toggle_logic `(uc  1 e 1 0 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"11 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
+[s S436 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v _lcd_1 lcd_1 `S436  1 e 6 0 ]
+"43
+[s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v _lcd_2 lcd_2 `S461  1 e 10 0 ]
 "52 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [v _PORTA PORTA `VEuc  1 e 1 @3968 ]
 "189
@@ -151,13 +201,90 @@ PORTE_INDEX 4
 [v _lat_registers lat_registers `[5]*.39VEuc  1 e 10 0 ]
 "16
 [v _port_registers port_registers `[5]*.39VEuc  1 e 10 0 ]
-"12 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
+"98 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\application.c
 [v _main main `(i  1 e 2 0 ]
 {
-"22
+"108
 } 0
-"25
+"111
 [v _application_intialize application_intialize `(v  1 e 1 0 ]
 {
-"28
+"115
+} 0
+"191 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\ECU_Layer/LCD/ecu_lcd.c
+[v _lcd_8bit_initialize lcd_8bit_initialize `(uc  1 e 1 0 ]
+{
+"193
+[v lcd_8bit_initialize@l_data_pins_counter l_data_pins_counter `uc  1 a 1 13 ]
+"192
+[v lcd_8bit_initialize@ret ret `uc  1 a 1 12 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"191
+[s S461 . 10 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[8]S24 1 lcd_data 8 2 ]
+[v lcd_8bit_initialize@_lcd_ _lcd_ `*.30CS461  1 p 1 11 ]
+"207
+} 0
+"23
+[v _lcd_4bit_initialize lcd_4bit_initialize `(uc  1 e 1 0 ]
+{
+"25
+[v lcd_4bit_initialize@l_data_pins_counter l_data_pins_counter `uc  1 a 1 13 ]
+"24
+[v lcd_4bit_initialize@ret ret `uc  1 a 1 12 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"23
+[s S436 . 6 `S24 1 lcd_rs 1 0 `S24 1 lcd_en 1 1 `[4]S24 1 lcd_data 4 2 ]
+[v lcd_4bit_initialize@_lcd_ _lcd_ `*.30CS436  1 p 1 11 ]
+"39
+} 0
+"54 D:\Important files\courses\(Embedded) ahmed abd el gafar\00 project\Github\Embedded_System\new_my_project.X\MCAL_Layer/GPIO/hel_gpio.c
+[v _gpio_pin_intialize gpio_pin_intialize `(uc  1 e 1 0 ]
+{
+"55
+[v gpio_pin_intialize@ret ret `uc  1 a 1 10 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"54
+[v gpio_pin_intialize@_pin_config _pin_config `*.30CS24  1 p 1 8 ]
+"64
+} 0
+"97
+[v _gpio_pin_write_logic gpio_pin_write_logic `(uc  1 e 1 0 ]
+{
+"98
+[v gpio_pin_write_logic@ret ret `uc  1 a 1 7 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"97
+[v gpio_pin_write_logic@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
+[v gpio_pin_write_logic@logic logic `E2811  1 p 1 1 ]
+"114
+} 0
+"26
+[v _gpio_pin_direction_intialize gpio_pin_direction_intialize `(uc  1 e 1 0 ]
+{
+"27
+[v gpio_pin_direction_intialize@ret ret `uc  1 a 1 6 ]
+[s S24 . 1 `uc 1 port 1 0 :3:0 
+`uc 1 pin 1 0 :3:3 
+`uc 1 direction 1 0 :1:6 
+`uc 1 logic 1 0 :1:7 
+]
+"26
+[v gpio_pin_direction_intialize@_pin_config _pin_config `*.30CS24  1 p 1 0 ]
+"43
 } 0

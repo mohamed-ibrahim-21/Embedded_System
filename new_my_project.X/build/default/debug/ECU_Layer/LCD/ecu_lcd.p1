@@ -10,10 +10,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "74 ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h
 [; ;ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h: 74: Std_ReturnType gpio_pin_intialize (const pin_config_t *_pin_config);
 [v _gpio_pin_intialize `(uc ~T0 @X0 0 ef1`*CS272 ]
+"55 ECU_Layer/LCD/ecu_lcd.c
+[; ;ECU_Layer/LCD/ecu_lcd.c: 55:         ret = gpio_pin_write_logic(&(_lcd_->lcd_rs), GPIO_LOW);
+[c E2811 0 1 .. ]
+[n E2811 . GPIO_LOW GPIO_HIGH  ]
+"77 ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h
+[; ;ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h: 77: Std_ReturnType gpio_pin_write_logic (const pin_config_t *_pin_config, logic_t logic);
+[v _gpio_pin_write_logic `(uc ~T0 @X0 0 ef2`*CS272`E2811 ]
+"11 ECU_Layer/LCD/ecu_lcd.c
+[; ;ECU_Layer/LCD/ecu_lcd.c: 11: static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_command);
+[v _lcd_send_4bits `(uc ~T0 @X0 0 sf2`*CS273`uc ]
+"12
+[; ;ECU_Layer/LCD/ecu_lcd.c: 12: static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *_lcd_);
+[v _lcd_4bit_send_enable_signal `(uc ~T0 @X0 0 sf1`*CS273 ]
 "38 ECU_Layer/LCD/ecu_lcd.h
 [; ;ECU_Layer/LCD/ecu_lcd.h: 38: typedef struct{
 [s S274 `S272 1 `S272 1 `S272 -> 8 `i ]
 [n S274 . lcd_rs lcd_en lcd_data ]
+[v F2781 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
+[v __delay `JF2781 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "191
@@ -288,152 +305,182 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSH equ 0FFEh ;# ">
 "6715
 [; <" TOSU equ 0FFFh ;# ">
-"21 ECU_Layer/LCD/ecu_lcd.c
-[; ;ECU_Layer/LCD/ecu_lcd.c: 21: Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_){
+"23 ECU_Layer/LCD/ecu_lcd.c
+[; ;ECU_Layer/LCD/ecu_lcd.c: 23: Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_){
 [v _lcd_4bit_initialize `(uc ~T0 @X0 1 ef1`*CS273 ]
 {
 [e :U _lcd_4bit_initialize ]
 [v __lcd_ `*CS273 ~T0 @X0 1 r1 ]
 [f ]
-"22
-[; ;ECU_Layer/LCD/ecu_lcd.c: 22:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"24
+[; ;ECU_Layer/LCD/ecu_lcd.c: 24:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"23
-[; ;ECU_Layer/LCD/ecu_lcd.c: 23:     uint8 l_data_pins_counter = 0;
+"25
+[; ;ECU_Layer/LCD/ecu_lcd.c: 25:     uint8 l_data_pins_counter = 0;
 [v _l_data_pins_counter `uc ~T0 @X0 1 a ]
 [e = _l_data_pins_counter -> -> 0 `i `uc ]
-"24
-[; ;ECU_Layer/LCD/ecu_lcd.c: 24:     if(((void*)0) == _lcd_){
+"26
+[; ;ECU_Layer/LCD/ecu_lcd.c: 26:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS273 __lcd_ 276  ]
 {
-"25
-[; ;ECU_Layer/LCD/ecu_lcd.c: 25:         ret = (Std_ReturnType)0x00;
+"27
+[; ;ECU_Layer/LCD/ecu_lcd.c: 27:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"26
-[; ;ECU_Layer/LCD/ecu_lcd.c: 26:     }
+"28
+[; ;ECU_Layer/LCD/ecu_lcd.c: 28:     }
 }
 [e $U 277  ]
-"27
-[; ;ECU_Layer/LCD/ecu_lcd.c: 27:     else{
+"29
+[; ;ECU_Layer/LCD/ecu_lcd.c: 29:     else{
 [e :U 276 ]
 {
-"28
-[; ;ECU_Layer/LCD/ecu_lcd.c: 28:         ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
-[e = _ret ( _gpio_pin_intialize (1 &U . *U __lcd_ 0 ]
-"29
-[; ;ECU_Layer/LCD/ecu_lcd.c: 29:         ret = gpio_pin_intialize(&(_lcd_->lcd_en));
-[e = _ret ( _gpio_pin_intialize (1 &U . *U __lcd_ 1 ]
 "30
-[; ;ECU_Layer/LCD/ecu_lcd.c: 30:         for(l_data_pins_counter = 0 ; l_data_pins_counter<4 ; l_data_pins_counter++){
+[; ;ECU_Layer/LCD/ecu_lcd.c: 30:         ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
+[e = _ret ( _gpio_pin_intialize (1 &U . *U __lcd_ 0 ]
+"31
+[; ;ECU_Layer/LCD/ecu_lcd.c: 31:         ret = gpio_pin_intialize(&(_lcd_->lcd_en));
+[e = _ret ( _gpio_pin_intialize (1 &U . *U __lcd_ 1 ]
+"32
+[; ;ECU_Layer/LCD/ecu_lcd.c: 32:         for(l_data_pins_counter = 0 ; l_data_pins_counter<4 ; l_data_pins_counter++){
 {
 [e = _l_data_pins_counter -> -> 0 `i `uc ]
 [e $ < -> _l_data_pins_counter `i -> 4 `i 278  ]
 [e $U 279  ]
 [e :U 278 ]
 {
-"31
-[; ;ECU_Layer/LCD/ecu_lcd.c: 31:             ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
+"33
+[; ;ECU_Layer/LCD/ecu_lcd.c: 33:             ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
 [e = _ret ( _gpio_pin_intialize (1 &U *U + &U . *U __lcd_ 2 * -> _l_data_pins_counter `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux ]
-"32
-[; ;ECU_Layer/LCD/ecu_lcd.c: 32:         }
+"34
+[; ;ECU_Layer/LCD/ecu_lcd.c: 34:         }
 }
 [e ++ _l_data_pins_counter -> -> 1 `i `uc ]
 [e $ < -> _l_data_pins_counter `i -> 4 `i 278  ]
 [e :U 279 ]
 }
-"33
-[; ;ECU_Layer/LCD/ecu_lcd.c: 33:     }
+"35
+[; ;ECU_Layer/LCD/ecu_lcd.c: 35:     }
 }
 [e :U 277 ]
-"36
-[; ;ECU_Layer/LCD/ecu_lcd.c: 36:     return ret;
+"38
+[; ;ECU_Layer/LCD/ecu_lcd.c: 38:     return ret;
 [e ) _ret ]
 [e $UE 275  ]
-"37
-[; ;ECU_Layer/LCD/ecu_lcd.c: 37: }
+"39
+[; ;ECU_Layer/LCD/ecu_lcd.c: 39: }
 [e :UE 275 ]
 }
-"47
-[; ;ECU_Layer/LCD/ecu_lcd.c: 47: Std_ReturnType lcd_4bit_send_command (const lcd_4bit_t *_lcd_ ,uint8 command){
+"49
+[; ;ECU_Layer/LCD/ecu_lcd.c: 49: Std_ReturnType lcd_4bit_send_command (const lcd_4bit_t *_lcd_ ,uint8 command){
 [v _lcd_4bit_send_command `(uc ~T0 @X0 1 ef2`*CS273`uc ]
 {
 [e :U _lcd_4bit_send_command ]
 [v __lcd_ `*CS273 ~T0 @X0 1 r1 ]
 [v _command `uc ~T0 @X0 1 r2 ]
 [f ]
-"48
-[; ;ECU_Layer/LCD/ecu_lcd.c: 48:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"50
+[; ;ECU_Layer/LCD/ecu_lcd.c: 50:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"49
-[; ;ECU_Layer/LCD/ecu_lcd.c: 49:     if(((void*)0) == _lcd_){
+"51
+[; ;ECU_Layer/LCD/ecu_lcd.c: 51:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS273 __lcd_ 282  ]
 {
-"50
-[; ;ECU_Layer/LCD/ecu_lcd.c: 50:         ret = (Std_ReturnType)0x00;
+"52
+[; ;ECU_Layer/LCD/ecu_lcd.c: 52:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"51
-[; ;ECU_Layer/LCD/ecu_lcd.c: 51:     }
+"53
+[; ;ECU_Layer/LCD/ecu_lcd.c: 53:     }
 }
 [e $U 283  ]
-"52
-[; ;ECU_Layer/LCD/ecu_lcd.c: 52:     else{
+"54
+[; ;ECU_Layer/LCD/ecu_lcd.c: 54:     else{
 [e :U 282 ]
 {
-"54
-[; ;ECU_Layer/LCD/ecu_lcd.c: 54:     }
+"55
+[; ;ECU_Layer/LCD/ecu_lcd.c: 55:         ret = gpio_pin_write_logic(&(_lcd_->lcd_rs), GPIO_LOW);
+[e = _ret ( _gpio_pin_write_logic (2 , &U . *U __lcd_ 0 . `E2811 0 ]
+"56
+[; ;ECU_Layer/LCD/ecu_lcd.c: 56:         ret = lcd_send_4bits(_lcd_ , command>>4);
+[e = _ret ( _lcd_send_4bits (2 , __lcd_ -> >> -> _command `i -> 4 `i `uc ]
+"57
+[; ;ECU_Layer/LCD/ecu_lcd.c: 57:         ret = lcd_4bit_send_enable_signal(_lcd_);
+[e = _ret ( _lcd_4bit_send_enable_signal (1 __lcd_ ]
+"58
+[; ;ECU_Layer/LCD/ecu_lcd.c: 58:         ret = lcd_send_4bits(_lcd_ , command);
+[e = _ret ( _lcd_send_4bits (2 , __lcd_ _command ]
+"59
+[; ;ECU_Layer/LCD/ecu_lcd.c: 59:         ret = lcd_4bit_send_enable_signal(_lcd_);
+[e = _ret ( _lcd_4bit_send_enable_signal (1 __lcd_ ]
+"60
+[; ;ECU_Layer/LCD/ecu_lcd.c: 60:     }
 }
 [e :U 283 ]
-"57
-[; ;ECU_Layer/LCD/ecu_lcd.c: 57:     return ret;
+"63
+[; ;ECU_Layer/LCD/ecu_lcd.c: 63:     return ret;
 [e ) _ret ]
 [e $UE 281  ]
-"58
-[; ;ECU_Layer/LCD/ecu_lcd.c: 58: }
+"64
+[; ;ECU_Layer/LCD/ecu_lcd.c: 64: }
 [e :UE 281 ]
 }
-"68
-[; ;ECU_Layer/LCD/ecu_lcd.c: 68: Std_ReturnType lcd_4bit_send_char_data (const lcd_4bit_t *_lcd_ ,uint8 data){
+"74
+[; ;ECU_Layer/LCD/ecu_lcd.c: 74: Std_ReturnType lcd_4bit_send_char_data (const lcd_4bit_t *_lcd_ ,uint8 data){
 [v _lcd_4bit_send_char_data `(uc ~T0 @X0 1 ef2`*CS273`uc ]
 {
 [e :U _lcd_4bit_send_char_data ]
 [v __lcd_ `*CS273 ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
 [f ]
-"69
-[; ;ECU_Layer/LCD/ecu_lcd.c: 69:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"75
+[; ;ECU_Layer/LCD/ecu_lcd.c: 75:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"70
-[; ;ECU_Layer/LCD/ecu_lcd.c: 70:     if(((void*)0) == _lcd_){
+"76
+[; ;ECU_Layer/LCD/ecu_lcd.c: 76:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS273 __lcd_ 285  ]
 {
-"71
-[; ;ECU_Layer/LCD/ecu_lcd.c: 71:         ret = (Std_ReturnType)0x00;
+"77
+[; ;ECU_Layer/LCD/ecu_lcd.c: 77:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"72
-[; ;ECU_Layer/LCD/ecu_lcd.c: 72:     }
+"78
+[; ;ECU_Layer/LCD/ecu_lcd.c: 78:     }
 }
 [e $U 286  ]
-"73
-[; ;ECU_Layer/LCD/ecu_lcd.c: 73:     else{
+"79
+[; ;ECU_Layer/LCD/ecu_lcd.c: 79:     else{
 [e :U 285 ]
 {
-"75
-[; ;ECU_Layer/LCD/ecu_lcd.c: 75:     }
+"80
+[; ;ECU_Layer/LCD/ecu_lcd.c: 80:         ret = gpio_pin_write_logic(&(_lcd_->lcd_rs), GPIO_HIGH);
+[e = _ret ( _gpio_pin_write_logic (2 , &U . *U __lcd_ 0 . `E2811 1 ]
+"81
+[; ;ECU_Layer/LCD/ecu_lcd.c: 81:         ret = lcd_send_4bits(_lcd_ , data>>4);
+[e = _ret ( _lcd_send_4bits (2 , __lcd_ -> >> -> _data `i -> 4 `i `uc ]
+"82
+[; ;ECU_Layer/LCD/ecu_lcd.c: 82:         ret = lcd_4bit_send_enable_signal(_lcd_);
+[e = _ret ( _lcd_4bit_send_enable_signal (1 __lcd_ ]
+"83
+[; ;ECU_Layer/LCD/ecu_lcd.c: 83:         ret = lcd_send_4bits(_lcd_ , data);
+[e = _ret ( _lcd_send_4bits (2 , __lcd_ _data ]
+"84
+[; ;ECU_Layer/LCD/ecu_lcd.c: 84:         ret = lcd_4bit_send_enable_signal(_lcd_);
+[e = _ret ( _lcd_4bit_send_enable_signal (1 __lcd_ ]
+"85
+[; ;ECU_Layer/LCD/ecu_lcd.c: 85:     }
 }
 [e :U 286 ]
-"78
-[; ;ECU_Layer/LCD/ecu_lcd.c: 78:     return ret;
+"88
+[; ;ECU_Layer/LCD/ecu_lcd.c: 88:     return ret;
 [e ) _ret ]
 [e $UE 284  ]
-"79
-[; ;ECU_Layer/LCD/ecu_lcd.c: 79: }
+"89
+[; ;ECU_Layer/LCD/ecu_lcd.c: 89: }
 [e :UE 284 ]
 }
-"91
-[; ;ECU_Layer/LCD/ecu_lcd.c: 91: Std_ReturnType lcd_4bit_send_char_data_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
+"101
+[; ;ECU_Layer/LCD/ecu_lcd.c: 101: Std_ReturnType lcd_4bit_send_char_data_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
 [v _lcd_4bit_send_char_data_position `(uc ~T0 @X0 1 ef4`*CS273`uc`uc`uc ]
 {
 [e :U _lcd_4bit_send_char_data_position ]
@@ -442,78 +489,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _column `uc ~T0 @X0 1 r3 ]
 [v _data `uc ~T0 @X0 1 r4 ]
 [f ]
-"92
-[; ;ECU_Layer/LCD/ecu_lcd.c: 92:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"102
+[; ;ECU_Layer/LCD/ecu_lcd.c: 102:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"93
-[; ;ECU_Layer/LCD/ecu_lcd.c: 93:     if(((void*)0) == _lcd_){
+"103
+[; ;ECU_Layer/LCD/ecu_lcd.c: 103:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS273 __lcd_ 288  ]
 {
-"94
-[; ;ECU_Layer/LCD/ecu_lcd.c: 94:         ret = (Std_ReturnType)0x00;
+"104
+[; ;ECU_Layer/LCD/ecu_lcd.c: 104:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"95
-[; ;ECU_Layer/LCD/ecu_lcd.c: 95:     }
+"105
+[; ;ECU_Layer/LCD/ecu_lcd.c: 105:     }
 }
 [e $U 289  ]
-"96
-[; ;ECU_Layer/LCD/ecu_lcd.c: 96:     else{
+"106
+[; ;ECU_Layer/LCD/ecu_lcd.c: 106:     else{
 [e :U 288 ]
 {
-"98
-[; ;ECU_Layer/LCD/ecu_lcd.c: 98:     }
+"108
+[; ;ECU_Layer/LCD/ecu_lcd.c: 108:     }
 }
 [e :U 289 ]
-"101
-[; ;ECU_Layer/LCD/ecu_lcd.c: 101:     return ret;
+"111
+[; ;ECU_Layer/LCD/ecu_lcd.c: 111:     return ret;
 [e ) _ret ]
 [e $UE 287  ]
-"102
-[; ;ECU_Layer/LCD/ecu_lcd.c: 102: }
+"112
+[; ;ECU_Layer/LCD/ecu_lcd.c: 112: }
 [e :UE 287 ]
 }
-"112
-[; ;ECU_Layer/LCD/ecu_lcd.c: 112: Std_ReturnType lcd_4bit_send_string (const lcd_4bit_t *_lcd_ ,uint8 *str){
+"122
+[; ;ECU_Layer/LCD/ecu_lcd.c: 122: Std_ReturnType lcd_4bit_send_string (const lcd_4bit_t *_lcd_ ,uint8 *str){
 [v _lcd_4bit_send_string `(uc ~T0 @X0 1 ef2`*CS273`*uc ]
 {
 [e :U _lcd_4bit_send_string ]
 [v __lcd_ `*CS273 ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
 [f ]
-"113
-[; ;ECU_Layer/LCD/ecu_lcd.c: 113:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"123
+[; ;ECU_Layer/LCD/ecu_lcd.c: 123:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"114
-[; ;ECU_Layer/LCD/ecu_lcd.c: 114:     if(((void*)0) == _lcd_){
+"124
+[; ;ECU_Layer/LCD/ecu_lcd.c: 124:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS273 __lcd_ 291  ]
 {
-"115
-[; ;ECU_Layer/LCD/ecu_lcd.c: 115:         ret = (Std_ReturnType)0x00;
+"125
+[; ;ECU_Layer/LCD/ecu_lcd.c: 125:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"116
-[; ;ECU_Layer/LCD/ecu_lcd.c: 116:     }
+"126
+[; ;ECU_Layer/LCD/ecu_lcd.c: 126:     }
 }
 [e $U 292  ]
-"117
-[; ;ECU_Layer/LCD/ecu_lcd.c: 117:     else{
+"127
+[; ;ECU_Layer/LCD/ecu_lcd.c: 127:     else{
 [e :U 291 ]
 {
-"119
-[; ;ECU_Layer/LCD/ecu_lcd.c: 119:     }
+"129
+[; ;ECU_Layer/LCD/ecu_lcd.c: 129:     }
 }
 [e :U 292 ]
-"122
-[; ;ECU_Layer/LCD/ecu_lcd.c: 122:     return ret;
+"132
+[; ;ECU_Layer/LCD/ecu_lcd.c: 132:     return ret;
 [e ) _ret ]
 [e $UE 290  ]
-"123
-[; ;ECU_Layer/LCD/ecu_lcd.c: 123: }
+"133
+[; ;ECU_Layer/LCD/ecu_lcd.c: 133: }
 [e :UE 290 ]
 }
-"135
-[; ;ECU_Layer/LCD/ecu_lcd.c: 135: Std_ReturnType lcd_4bit_send_string_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
+"145
+[; ;ECU_Layer/LCD/ecu_lcd.c: 145: Std_ReturnType lcd_4bit_send_string_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
 [v _lcd_4bit_send_string_position `(uc ~T0 @X0 1 ef4`*CS273`uc`uc`*uc ]
 {
 [e :U _lcd_4bit_send_string_position ]
@@ -522,39 +569,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _column `uc ~T0 @X0 1 r3 ]
 [v _str `*uc ~T0 @X0 1 r4 ]
 [f ]
-"136
-[; ;ECU_Layer/LCD/ecu_lcd.c: 136:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"146
+[; ;ECU_Layer/LCD/ecu_lcd.c: 146:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"137
-[; ;ECU_Layer/LCD/ecu_lcd.c: 137:     if(((void*)0) == _lcd_){
+"147
+[; ;ECU_Layer/LCD/ecu_lcd.c: 147:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS273 __lcd_ 294  ]
 {
-"138
-[; ;ECU_Layer/LCD/ecu_lcd.c: 138:         ret = (Std_ReturnType)0x00;
+"148
+[; ;ECU_Layer/LCD/ecu_lcd.c: 148:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"139
-[; ;ECU_Layer/LCD/ecu_lcd.c: 139:     }
+"149
+[; ;ECU_Layer/LCD/ecu_lcd.c: 149:     }
 }
 [e $U 295  ]
-"140
-[; ;ECU_Layer/LCD/ecu_lcd.c: 140:     else{
+"150
+[; ;ECU_Layer/LCD/ecu_lcd.c: 150:     else{
 [e :U 294 ]
 {
-"142
-[; ;ECU_Layer/LCD/ecu_lcd.c: 142:     }
+"152
+[; ;ECU_Layer/LCD/ecu_lcd.c: 152:     }
 }
 [e :U 295 ]
-"145
-[; ;ECU_Layer/LCD/ecu_lcd.c: 145:     return ret;
+"155
+[; ;ECU_Layer/LCD/ecu_lcd.c: 155:     return ret;
 [e ) _ret ]
 [e $UE 293  ]
-"146
-[; ;ECU_Layer/LCD/ecu_lcd.c: 146: }
+"156
+[; ;ECU_Layer/LCD/ecu_lcd.c: 156: }
 [e :UE 293 ]
 }
-"159
-[; ;ECU_Layer/LCD/ecu_lcd.c: 159: Std_ReturnType lcd_4bit_send_custome_chr (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
+"169
+[; ;ECU_Layer/LCD/ecu_lcd.c: 169: Std_ReturnType lcd_4bit_send_custome_chr (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
 [v _lcd_4bit_send_custome_chr `(uc ~T0 @X0 1 ef5`*CS273`uc`uc`*Cuc`uc ]
 {
 [e :U _lcd_4bit_send_custome_chr ]
@@ -564,183 +611,186 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v __chr `*Cuc ~T0 @X0 1 r4 ]
 [v _mem_pos `uc ~T0 @X0 1 r5 ]
 [f ]
-"160
-[; ;ECU_Layer/LCD/ecu_lcd.c: 160:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"170
+[; ;ECU_Layer/LCD/ecu_lcd.c: 170:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"161
-[; ;ECU_Layer/LCD/ecu_lcd.c: 161:     if(((void*)0) == _lcd_){
+"171
+[; ;ECU_Layer/LCD/ecu_lcd.c: 171:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS273 __lcd_ 297  ]
 {
-"162
-[; ;ECU_Layer/LCD/ecu_lcd.c: 162:         ret = (Std_ReturnType)0x00;
+"172
+[; ;ECU_Layer/LCD/ecu_lcd.c: 172:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"163
-[; ;ECU_Layer/LCD/ecu_lcd.c: 163:     }
+"173
+[; ;ECU_Layer/LCD/ecu_lcd.c: 173:     }
 }
 [e $U 298  ]
-"164
-[; ;ECU_Layer/LCD/ecu_lcd.c: 164:     else{
+"174
+[; ;ECU_Layer/LCD/ecu_lcd.c: 174:     else{
 [e :U 297 ]
 {
-"166
-[; ;ECU_Layer/LCD/ecu_lcd.c: 166:     }
+"176
+[; ;ECU_Layer/LCD/ecu_lcd.c: 176:     }
 }
 [e :U 298 ]
-"169
-[; ;ECU_Layer/LCD/ecu_lcd.c: 169:     return ret;
+"179
+[; ;ECU_Layer/LCD/ecu_lcd.c: 179:     return ret;
 [e ) _ret ]
 [e $UE 296  ]
-"170
-[; ;ECU_Layer/LCD/ecu_lcd.c: 170: }
+"180
+[; ;ECU_Layer/LCD/ecu_lcd.c: 180: }
 [e :UE 296 ]
 }
-"181
-[; ;ECU_Layer/LCD/ecu_lcd.c: 181: Std_ReturnType lcd_8bit_initialize (const lcd_8bit_t *_lcd_){
+"191
+[; ;ECU_Layer/LCD/ecu_lcd.c: 191: Std_ReturnType lcd_8bit_initialize (const lcd_8bit_t *_lcd_){
 [v _lcd_8bit_initialize `(uc ~T0 @X0 1 ef1`*CS274 ]
 {
 [e :U _lcd_8bit_initialize ]
 [v __lcd_ `*CS274 ~T0 @X0 1 r1 ]
 [f ]
-"182
-[; ;ECU_Layer/LCD/ecu_lcd.c: 182:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"192
+[; ;ECU_Layer/LCD/ecu_lcd.c: 192:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"183
-[; ;ECU_Layer/LCD/ecu_lcd.c: 183:     uint8 l_data_pins_counter = 0;
+"193
+[; ;ECU_Layer/LCD/ecu_lcd.c: 193:     uint8 l_data_pins_counter = 0;
 [v _l_data_pins_counter `uc ~T0 @X0 1 a ]
 [e = _l_data_pins_counter -> -> 0 `i `uc ]
-"184
-[; ;ECU_Layer/LCD/ecu_lcd.c: 184:     if(((void*)0) == _lcd_){
+"194
+[; ;ECU_Layer/LCD/ecu_lcd.c: 194:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS274 __lcd_ 300  ]
 {
-"185
-[; ;ECU_Layer/LCD/ecu_lcd.c: 185:         ret = (Std_ReturnType)0x00;
+"195
+[; ;ECU_Layer/LCD/ecu_lcd.c: 195:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"186
-[; ;ECU_Layer/LCD/ecu_lcd.c: 186:     }
+"196
+[; ;ECU_Layer/LCD/ecu_lcd.c: 196:     }
 }
 [e $U 301  ]
-"187
-[; ;ECU_Layer/LCD/ecu_lcd.c: 187:     else{
+"197
+[; ;ECU_Layer/LCD/ecu_lcd.c: 197:     else{
 [e :U 300 ]
 {
-"188
-[; ;ECU_Layer/LCD/ecu_lcd.c: 188:         ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
+"198
+[; ;ECU_Layer/LCD/ecu_lcd.c: 198:         ret = gpio_pin_intialize(&(_lcd_->lcd_rs));
 [e = _ret ( _gpio_pin_intialize (1 &U . *U __lcd_ 0 ]
-"189
-[; ;ECU_Layer/LCD/ecu_lcd.c: 189:         ret = gpio_pin_intialize(&(_lcd_->lcd_en));
+"199
+[; ;ECU_Layer/LCD/ecu_lcd.c: 199:         ret = gpio_pin_intialize(&(_lcd_->lcd_en));
 [e = _ret ( _gpio_pin_intialize (1 &U . *U __lcd_ 1 ]
-"190
-[; ;ECU_Layer/LCD/ecu_lcd.c: 190:         for(l_data_pins_counter = 0 ; l_data_pins_counter<8 ; l_data_pins_counter++){
+"200
+[; ;ECU_Layer/LCD/ecu_lcd.c: 200:         for(l_data_pins_counter = 0 ; l_data_pins_counter<8 ; l_data_pins_counter++){
 {
 [e = _l_data_pins_counter -> -> 0 `i `uc ]
 [e $ < -> _l_data_pins_counter `i -> 8 `i 302  ]
 [e $U 303  ]
 [e :U 302 ]
 {
-"191
-[; ;ECU_Layer/LCD/ecu_lcd.c: 191:             ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
+"201
+[; ;ECU_Layer/LCD/ecu_lcd.c: 201:             ret = gpio_pin_intialize(&(_lcd_->lcd_data[l_data_pins_counter]));
 [e = _ret ( _gpio_pin_intialize (1 &U *U + &U . *U __lcd_ 2 * -> _l_data_pins_counter `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux ]
-"192
-[; ;ECU_Layer/LCD/ecu_lcd.c: 192:         }
+"202
+[; ;ECU_Layer/LCD/ecu_lcd.c: 202:         }
 }
 [e ++ _l_data_pins_counter -> -> 1 `i `uc ]
 [e $ < -> _l_data_pins_counter `i -> 8 `i 302  ]
 [e :U 303 ]
 }
-"193
-[; ;ECU_Layer/LCD/ecu_lcd.c: 193:     }
+"203
+[; ;ECU_Layer/LCD/ecu_lcd.c: 203:     }
 }
 [e :U 301 ]
-"196
-[; ;ECU_Layer/LCD/ecu_lcd.c: 196:     return ret;
+"206
+[; ;ECU_Layer/LCD/ecu_lcd.c: 206:     return ret;
 [e ) _ret ]
 [e $UE 299  ]
-"197
-[; ;ECU_Layer/LCD/ecu_lcd.c: 197: }
+"207
+[; ;ECU_Layer/LCD/ecu_lcd.c: 207: }
 [e :UE 299 ]
 }
-"207
-[; ;ECU_Layer/LCD/ecu_lcd.c: 207: Std_ReturnType lcd_8bit_send_command (const lcd_8bit_t *_lcd_ ,uint8 command){
+"217
+[; ;ECU_Layer/LCD/ecu_lcd.c: 217: Std_ReturnType lcd_8bit_send_command (const lcd_8bit_t *_lcd_ ,uint8 command){
 [v _lcd_8bit_send_command `(uc ~T0 @X0 1 ef2`*CS274`uc ]
 {
 [e :U _lcd_8bit_send_command ]
 [v __lcd_ `*CS274 ~T0 @X0 1 r1 ]
 [v _command `uc ~T0 @X0 1 r2 ]
 [f ]
-"208
-[; ;ECU_Layer/LCD/ecu_lcd.c: 208:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"218
+[; ;ECU_Layer/LCD/ecu_lcd.c: 218:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"209
-[; ;ECU_Layer/LCD/ecu_lcd.c: 209:     if(((void*)0) == _lcd_){
+"219
+[; ;ECU_Layer/LCD/ecu_lcd.c: 219:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS274 __lcd_ 306  ]
 {
-"210
-[; ;ECU_Layer/LCD/ecu_lcd.c: 210:         ret = (Std_ReturnType)0x00;
+"220
+[; ;ECU_Layer/LCD/ecu_lcd.c: 220:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"211
-[; ;ECU_Layer/LCD/ecu_lcd.c: 211:     }
+"221
+[; ;ECU_Layer/LCD/ecu_lcd.c: 221:     }
 }
 [e $U 307  ]
-"212
-[; ;ECU_Layer/LCD/ecu_lcd.c: 212:     else{
+"222
+[; ;ECU_Layer/LCD/ecu_lcd.c: 222:     else{
 [e :U 306 ]
 {
-"214
-[; ;ECU_Layer/LCD/ecu_lcd.c: 214:     }
+"223
+[; ;ECU_Layer/LCD/ecu_lcd.c: 223:         ret = gpio_pin_write_logic(&(_lcd_->lcd_rs), GPIO_LOW);
+[e = _ret ( _gpio_pin_write_logic (2 , &U . *U __lcd_ 0 . `E2811 0 ]
+"224
+[; ;ECU_Layer/LCD/ecu_lcd.c: 224:     }
 }
 [e :U 307 ]
-"217
-[; ;ECU_Layer/LCD/ecu_lcd.c: 217:     return ret;
+"227
+[; ;ECU_Layer/LCD/ecu_lcd.c: 227:     return ret;
 [e ) _ret ]
 [e $UE 305  ]
-"218
-[; ;ECU_Layer/LCD/ecu_lcd.c: 218: }
+"228
+[; ;ECU_Layer/LCD/ecu_lcd.c: 228: }
 [e :UE 305 ]
 }
-"228
-[; ;ECU_Layer/LCD/ecu_lcd.c: 228: Std_ReturnType lcd_8bit_send_char_data (const lcd_8bit_t *_lcd_ ,uint8 data){
+"238
+[; ;ECU_Layer/LCD/ecu_lcd.c: 238: Std_ReturnType lcd_8bit_send_char_data (const lcd_8bit_t *_lcd_ ,uint8 data){
 [v _lcd_8bit_send_char_data `(uc ~T0 @X0 1 ef2`*CS274`uc ]
 {
 [e :U _lcd_8bit_send_char_data ]
 [v __lcd_ `*CS274 ~T0 @X0 1 r1 ]
 [v _data `uc ~T0 @X0 1 r2 ]
 [f ]
-"229
-[; ;ECU_Layer/LCD/ecu_lcd.c: 229:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"239
+[; ;ECU_Layer/LCD/ecu_lcd.c: 239:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"230
-[; ;ECU_Layer/LCD/ecu_lcd.c: 230:     if(((void*)0) == _lcd_){
+"240
+[; ;ECU_Layer/LCD/ecu_lcd.c: 240:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS274 __lcd_ 309  ]
 {
-"231
-[; ;ECU_Layer/LCD/ecu_lcd.c: 231:         ret = (Std_ReturnType)0x00;
+"241
+[; ;ECU_Layer/LCD/ecu_lcd.c: 241:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"232
-[; ;ECU_Layer/LCD/ecu_lcd.c: 232:     }
+"242
+[; ;ECU_Layer/LCD/ecu_lcd.c: 242:     }
 }
 [e $U 310  ]
-"233
-[; ;ECU_Layer/LCD/ecu_lcd.c: 233:     else{
+"243
+[; ;ECU_Layer/LCD/ecu_lcd.c: 243:     else{
 [e :U 309 ]
 {
-"235
-[; ;ECU_Layer/LCD/ecu_lcd.c: 235:     }
+"245
+[; ;ECU_Layer/LCD/ecu_lcd.c: 245:     }
 }
 [e :U 310 ]
-"238
-[; ;ECU_Layer/LCD/ecu_lcd.c: 238:     return ret;
+"248
+[; ;ECU_Layer/LCD/ecu_lcd.c: 248:     return ret;
 [e ) _ret ]
 [e $UE 308  ]
-"239
-[; ;ECU_Layer/LCD/ecu_lcd.c: 239: }
+"249
+[; ;ECU_Layer/LCD/ecu_lcd.c: 249: }
 [e :UE 308 ]
 }
-"251
-[; ;ECU_Layer/LCD/ecu_lcd.c: 251: Std_ReturnType lcd_8bit_send_char_data_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
+"261
+[; ;ECU_Layer/LCD/ecu_lcd.c: 261: Std_ReturnType lcd_8bit_send_char_data_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 data){
 [v _lcd_8bit_send_char_data_position `(uc ~T0 @X0 1 ef4`*CS274`uc`uc`uc ]
 {
 [e :U _lcd_8bit_send_char_data_position ]
@@ -749,78 +799,78 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _column `uc ~T0 @X0 1 r3 ]
 [v _data `uc ~T0 @X0 1 r4 ]
 [f ]
-"252
-[; ;ECU_Layer/LCD/ecu_lcd.c: 252:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"262
+[; ;ECU_Layer/LCD/ecu_lcd.c: 262:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"253
-[; ;ECU_Layer/LCD/ecu_lcd.c: 253:     if(((void*)0) == _lcd_){
+"263
+[; ;ECU_Layer/LCD/ecu_lcd.c: 263:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS274 __lcd_ 312  ]
 {
-"254
-[; ;ECU_Layer/LCD/ecu_lcd.c: 254:         ret = (Std_ReturnType)0x00;
+"264
+[; ;ECU_Layer/LCD/ecu_lcd.c: 264:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"255
-[; ;ECU_Layer/LCD/ecu_lcd.c: 255:     }
+"265
+[; ;ECU_Layer/LCD/ecu_lcd.c: 265:     }
 }
 [e $U 313  ]
-"256
-[; ;ECU_Layer/LCD/ecu_lcd.c: 256:     else{
+"266
+[; ;ECU_Layer/LCD/ecu_lcd.c: 266:     else{
 [e :U 312 ]
 {
-"258
-[; ;ECU_Layer/LCD/ecu_lcd.c: 258:     }
+"268
+[; ;ECU_Layer/LCD/ecu_lcd.c: 268:     }
 }
 [e :U 313 ]
-"261
-[; ;ECU_Layer/LCD/ecu_lcd.c: 261:     return ret;
+"271
+[; ;ECU_Layer/LCD/ecu_lcd.c: 271:     return ret;
 [e ) _ret ]
 [e $UE 311  ]
-"262
-[; ;ECU_Layer/LCD/ecu_lcd.c: 262: }
+"272
+[; ;ECU_Layer/LCD/ecu_lcd.c: 272: }
 [e :UE 311 ]
 }
-"272
-[; ;ECU_Layer/LCD/ecu_lcd.c: 272: Std_ReturnType lcd_8bit_send_string (const lcd_8bit_t *_lcd_ ,uint8 *str){
+"282
+[; ;ECU_Layer/LCD/ecu_lcd.c: 282: Std_ReturnType lcd_8bit_send_string (const lcd_8bit_t *_lcd_ ,uint8 *str){
 [v _lcd_8bit_send_string `(uc ~T0 @X0 1 ef2`*CS274`*uc ]
 {
 [e :U _lcd_8bit_send_string ]
 [v __lcd_ `*CS274 ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
 [f ]
-"273
-[; ;ECU_Layer/LCD/ecu_lcd.c: 273:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"283
+[; ;ECU_Layer/LCD/ecu_lcd.c: 283:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"274
-[; ;ECU_Layer/LCD/ecu_lcd.c: 274:     if(((void*)0) == _lcd_){
+"284
+[; ;ECU_Layer/LCD/ecu_lcd.c: 284:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS274 __lcd_ 315  ]
 {
-"275
-[; ;ECU_Layer/LCD/ecu_lcd.c: 275:         ret = (Std_ReturnType)0x00;
+"285
+[; ;ECU_Layer/LCD/ecu_lcd.c: 285:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"276
-[; ;ECU_Layer/LCD/ecu_lcd.c: 276:     }
+"286
+[; ;ECU_Layer/LCD/ecu_lcd.c: 286:     }
 }
 [e $U 316  ]
-"277
-[; ;ECU_Layer/LCD/ecu_lcd.c: 277:     else{
+"287
+[; ;ECU_Layer/LCD/ecu_lcd.c: 287:     else{
 [e :U 315 ]
 {
-"279
-[; ;ECU_Layer/LCD/ecu_lcd.c: 279:     }
+"289
+[; ;ECU_Layer/LCD/ecu_lcd.c: 289:     }
 }
 [e :U 316 ]
-"282
-[; ;ECU_Layer/LCD/ecu_lcd.c: 282:     return ret;
+"292
+[; ;ECU_Layer/LCD/ecu_lcd.c: 292:     return ret;
 [e ) _ret ]
 [e $UE 314  ]
-"283
-[; ;ECU_Layer/LCD/ecu_lcd.c: 283: }
+"293
+[; ;ECU_Layer/LCD/ecu_lcd.c: 293: }
 [e :UE 314 ]
 }
-"295
-[; ;ECU_Layer/LCD/ecu_lcd.c: 295: Std_ReturnType lcd_8bit_send_string_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
+"305
+[; ;ECU_Layer/LCD/ecu_lcd.c: 305: Std_ReturnType lcd_8bit_send_string_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str){
 [v _lcd_8bit_send_string_position `(uc ~T0 @X0 1 ef4`*CS274`uc`uc`*uc ]
 {
 [e :U _lcd_8bit_send_string_position ]
@@ -829,39 +879,39 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _column `uc ~T0 @X0 1 r3 ]
 [v _str `*uc ~T0 @X0 1 r4 ]
 [f ]
-"296
-[; ;ECU_Layer/LCD/ecu_lcd.c: 296:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"306
+[; ;ECU_Layer/LCD/ecu_lcd.c: 306:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"297
-[; ;ECU_Layer/LCD/ecu_lcd.c: 297:     if(((void*)0) == _lcd_){
+"307
+[; ;ECU_Layer/LCD/ecu_lcd.c: 307:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS274 __lcd_ 318  ]
 {
-"298
-[; ;ECU_Layer/LCD/ecu_lcd.c: 298:         ret = (Std_ReturnType)0x00;
+"308
+[; ;ECU_Layer/LCD/ecu_lcd.c: 308:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"299
-[; ;ECU_Layer/LCD/ecu_lcd.c: 299:     }
+"309
+[; ;ECU_Layer/LCD/ecu_lcd.c: 309:     }
 }
 [e $U 319  ]
-"300
-[; ;ECU_Layer/LCD/ecu_lcd.c: 300:     else{
+"310
+[; ;ECU_Layer/LCD/ecu_lcd.c: 310:     else{
 [e :U 318 ]
 {
-"302
-[; ;ECU_Layer/LCD/ecu_lcd.c: 302:     }
+"312
+[; ;ECU_Layer/LCD/ecu_lcd.c: 312:     }
 }
 [e :U 319 ]
-"305
-[; ;ECU_Layer/LCD/ecu_lcd.c: 305:     return ret;
+"315
+[; ;ECU_Layer/LCD/ecu_lcd.c: 315:     return ret;
 [e ) _ret ]
 [e $UE 317  ]
-"306
-[; ;ECU_Layer/LCD/ecu_lcd.c: 306: }
+"316
+[; ;ECU_Layer/LCD/ecu_lcd.c: 316: }
 [e :UE 317 ]
 }
-"319
-[; ;ECU_Layer/LCD/ecu_lcd.c: 319: Std_ReturnType lcd_8bit_send_custome_chr (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
+"329
+[; ;ECU_Layer/LCD/ecu_lcd.c: 329: Std_ReturnType lcd_8bit_send_custome_chr (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
 [v _lcd_8bit_send_custome_chr `(uc ~T0 @X0 1 ef5`*CS274`uc`uc`*Cuc`uc ]
 {
 [e :U _lcd_8bit_send_custome_chr ]
@@ -871,70 +921,130 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v __chr `*Cuc ~T0 @X0 1 r4 ]
 [v _mem_pos `uc ~T0 @X0 1 r5 ]
 [f ]
-"320
-[; ;ECU_Layer/LCD/ecu_lcd.c: 320:     Std_ReturnType ret = (Std_ReturnType)0x01;
+"330
+[; ;ECU_Layer/LCD/ecu_lcd.c: 330:     Std_ReturnType ret = (Std_ReturnType)0x01;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 1 `i `uc ]
-"321
-[; ;ECU_Layer/LCD/ecu_lcd.c: 321:     if(((void*)0) == _lcd_){
+"331
+[; ;ECU_Layer/LCD/ecu_lcd.c: 331:     if(((void*)0) == _lcd_){
 [e $ ! == -> -> -> 0 `i `*v `*CS274 __lcd_ 321  ]
 {
-"322
-[; ;ECU_Layer/LCD/ecu_lcd.c: 322:         ret = (Std_ReturnType)0x00;
+"332
+[; ;ECU_Layer/LCD/ecu_lcd.c: 332:         ret = (Std_ReturnType)0x00;
 [e = _ret -> -> 0 `i `uc ]
-"323
-[; ;ECU_Layer/LCD/ecu_lcd.c: 323:     }
+"333
+[; ;ECU_Layer/LCD/ecu_lcd.c: 333:     }
 }
 [e $U 322  ]
-"324
-[; ;ECU_Layer/LCD/ecu_lcd.c: 324:     else{
+"334
+[; ;ECU_Layer/LCD/ecu_lcd.c: 334:     else{
 [e :U 321 ]
 {
-"326
-[; ;ECU_Layer/LCD/ecu_lcd.c: 326:     }
+"336
+[; ;ECU_Layer/LCD/ecu_lcd.c: 336:     }
 }
 [e :U 322 ]
-"329
-[; ;ECU_Layer/LCD/ecu_lcd.c: 329:     return ret;
+"339
+[; ;ECU_Layer/LCD/ecu_lcd.c: 339:     return ret;
 [e ) _ret ]
 [e $UE 320  ]
-"330
-[; ;ECU_Layer/LCD/ecu_lcd.c: 330: }
+"340
+[; ;ECU_Layer/LCD/ecu_lcd.c: 340: }
 [e :UE 320 ]
 }
-"334
-[; ;ECU_Layer/LCD/ecu_lcd.c: 334: void convert_byte_to_string (uint8 value, uint8 *str){
+"344
+[; ;ECU_Layer/LCD/ecu_lcd.c: 344: void convert_byte_to_string (uint8 value, uint8 *str){
 [v _convert_byte_to_string `(v ~T0 @X0 1 ef2`uc`*uc ]
 {
 [e :U _convert_byte_to_string ]
 [v _value `uc ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
 [f ]
-"336
-[; ;ECU_Layer/LCD/ecu_lcd.c: 336: }
+"346
+[; ;ECU_Layer/LCD/ecu_lcd.c: 346: }
 [e :UE 323 ]
 }
-"338
-[; ;ECU_Layer/LCD/ecu_lcd.c: 338: void convert_short_to_string (uint16 value, uint8 *str){
+"348
+[; ;ECU_Layer/LCD/ecu_lcd.c: 348: void convert_short_to_string (uint16 value, uint8 *str){
 [v _convert_short_to_string `(v ~T0 @X0 1 ef2`us`*uc ]
 {
 [e :U _convert_short_to_string ]
 [v _value `us ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
 [f ]
-"340
-[; ;ECU_Layer/LCD/ecu_lcd.c: 340: }
+"350
+[; ;ECU_Layer/LCD/ecu_lcd.c: 350: }
 [e :UE 324 ]
 }
-"342
-[; ;ECU_Layer/LCD/ecu_lcd.c: 342: void convert_int_to_string (uint32 value, uint8 *str){
+"352
+[; ;ECU_Layer/LCD/ecu_lcd.c: 352: void convert_int_to_string (uint32 value, uint8 *str){
 [v _convert_int_to_string `(v ~T0 @X0 1 ef2`ul`*uc ]
 {
 [e :U _convert_int_to_string ]
 [v _value `ul ~T0 @X0 1 r1 ]
 [v _str `*uc ~T0 @X0 1 r2 ]
 [f ]
-"344
-[; ;ECU_Layer/LCD/ecu_lcd.c: 344: }
+"354
+[; ;ECU_Layer/LCD/ecu_lcd.c: 354: }
 [e :UE 325 ]
+}
+"356
+[; ;ECU_Layer/LCD/ecu_lcd.c: 356: static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_command){
+[v _lcd_send_4bits `(uc ~T0 @X0 1 sf2`*CS273`uc ]
+{
+[e :U _lcd_send_4bits ]
+[v __lcd_ `*CS273 ~T0 @X0 1 r1 ]
+[v __data_command `uc ~T0 @X0 1 r2 ]
+[f ]
+"357
+[; ;ECU_Layer/LCD/ecu_lcd.c: 357:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"358
+[; ;ECU_Layer/LCD/ecu_lcd.c: 358:     ret = gpio_pin_write_logic(&(_lcd_->lcd_data[0]), (_data_command >> 0) & (uint8)0x01);
+[e = _ret ( _gpio_pin_write_logic (2 , &U *U + &U . *U __lcd_ 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux -> & >> -> __data_command `i -> 0 `i -> -> -> 1 `i `uc `i `E2811 ]
+"359
+[; ;ECU_Layer/LCD/ecu_lcd.c: 359:     ret = gpio_pin_write_logic(&(_lcd_->lcd_data[1]), (_data_command >> 1) & (uint8)0x01);
+[e = _ret ( _gpio_pin_write_logic (2 , &U *U + &U . *U __lcd_ 2 * -> -> -> 1 `i `ui `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux -> & >> -> __data_command `i -> 1 `i -> -> -> 1 `i `uc `i `E2811 ]
+"360
+[; ;ECU_Layer/LCD/ecu_lcd.c: 360:     ret = gpio_pin_write_logic(&(_lcd_->lcd_data[2]), (_data_command >> 2) & (uint8)0x01);
+[e = _ret ( _gpio_pin_write_logic (2 , &U *U + &U . *U __lcd_ 2 * -> -> -> 2 `i `ui `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux -> & >> -> __data_command `i -> 2 `i -> -> -> 1 `i `uc `i `E2811 ]
+"361
+[; ;ECU_Layer/LCD/ecu_lcd.c: 361:     ret = gpio_pin_write_logic(&(_lcd_->lcd_data[3]), (_data_command >> 3) & (uint8)0x01);
+[e = _ret ( _gpio_pin_write_logic (2 , &U *U + &U . *U __lcd_ 2 * -> -> -> 3 `i `ui `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux -> & >> -> __data_command `i -> 3 `i -> -> -> 1 `i `uc `i `E2811 ]
+"363
+[; ;ECU_Layer/LCD/ecu_lcd.c: 363:     return ret;
+[e ) _ret ]
+[e $UE 326  ]
+"364
+[; ;ECU_Layer/LCD/ecu_lcd.c: 364: }
+[e :UE 326 ]
+}
+"367
+[; ;ECU_Layer/LCD/ecu_lcd.c: 367: static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *_lcd_){
+[v _lcd_4bit_send_enable_signal `(uc ~T0 @X0 1 sf1`*CS273 ]
+{
+[e :U _lcd_4bit_send_enable_signal ]
+[v __lcd_ `*CS273 ~T0 @X0 1 r1 ]
+[f ]
+"368
+[; ;ECU_Layer/LCD/ecu_lcd.c: 368:     Std_ReturnType ret = (Std_ReturnType)0x01;
+[v _ret `uc ~T0 @X0 1 a ]
+[e = _ret -> -> 1 `i `uc ]
+"369
+[; ;ECU_Layer/LCD/ecu_lcd.c: 369:     ret = gpio_pin_write_logic(&(_lcd_->lcd_data[0]), GPIO_HIGH);
+[e = _ret ( _gpio_pin_write_logic (2 , &U *U + &U . *U __lcd_ 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux . `E2811 1 ]
+"370
+[; ;ECU_Layer/LCD/ecu_lcd.c: 370:     _delay((unsigned long)((5)*(4000000UL/4000000.0)));
+[e ( __delay (1 -> * -> -> 5 `i `d / -> -> 4000000 `ul `d .4000000.0 `ul ]
+"371
+[; ;ECU_Layer/LCD/ecu_lcd.c: 371:     ret = gpio_pin_write_logic(&(_lcd_->lcd_data[0]), GPIO_LOW);
+[e = _ret ( _gpio_pin_write_logic (2 , &U *U + &U . *U __lcd_ 2 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U __lcd_ 2 `ui `ux . `E2811 0 ]
+"374
+[; ;ECU_Layer/LCD/ecu_lcd.c: 374:     return ret;
+[e ) _ret ]
+[e $UE 327  ]
+"375
+[; ;ECU_Layer/LCD/ecu_lcd.c: 375: }
+[e :UE 327 ]
 }
