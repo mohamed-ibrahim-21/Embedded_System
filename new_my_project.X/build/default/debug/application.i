@@ -4489,6 +4489,65 @@ typedef struct { unsigned long quot, rem; } uldiv_t;
 udiv_t udiv (unsigned int, unsigned int);
 uldiv_t uldiv (unsigned long, unsigned long);
 # 13 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../std_libraries.h" 2
+
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 1 3
+# 25 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 3
+# 1 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 1 3
+# 421 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\bits/alltypes.h" 3
+typedef struct __locale_struct * locale_t;
+# 26 "C:\\Program Files\\Microchip\\xc8\\v2.45\\pic\\include\\c99\\string.h" 2 3
+
+void *memcpy (void *restrict, const void *restrict, size_t);
+void *memmove (void *, const void *, size_t);
+void *memset (void *, int, size_t);
+int memcmp (const void *, const void *, size_t);
+void *memchr (const void *, int, size_t);
+
+char *strcpy (char *restrict, const char *restrict);
+char *strncpy (char *restrict, const char *restrict, size_t);
+
+char *strcat (char *restrict, const char *restrict);
+char *strncat (char *restrict, const char *restrict, size_t);
+
+int strcmp (const char *, const char *);
+int strncmp (const char *, const char *, size_t);
+
+int strcoll (const char *, const char *);
+size_t strxfrm (char *restrict, const char *restrict, size_t);
+
+char *strchr (const char *, int);
+char *strrchr (const char *, int);
+
+size_t strcspn (const char *, const char *);
+size_t strspn (const char *, const char *);
+char *strpbrk (const char *, const char *);
+char *strstr (const char *, const char *);
+char *strtok (char *restrict, const char *restrict);
+
+size_t strlen (const char *);
+
+char *strerror (int);
+
+
+
+
+char *strtok_r (char *restrict, const char *restrict, char **restrict);
+int strerror_r (int, char *, size_t);
+char *stpcpy(char *restrict, const char *restrict);
+char *stpncpy(char *restrict, const char *restrict, size_t);
+size_t strnlen (const char *, size_t);
+char *strdup (const char *);
+char *strndup (const char *, size_t);
+char *strsignal(int);
+char *strerror_l (int, locale_t);
+int strcoll_l (const char *, const char *, locale_t);
+size_t strxfrm_l (char *restrict, const char *restrict, size_t, locale_t);
+
+
+
+
+void *memccpy (void *restrict, const void *restrict, int, size_t);
+# 14 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../std_libraries.h" 2
 # 12 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../mcal_std_types.h" 2
 
 # 1 "./ECU_Layer/LED/../../MCAL_Layer/GPIO/../compiler.h" 1
@@ -4887,6 +4946,7 @@ typedef struct{
 }lcd_8bit_t;
 
 
+
 Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_);
 Std_ReturnType lcd_4bit_send_command (const lcd_4bit_t *_lcd_ ,uint8 command);
 Std_ReturnType lcd_4bit_send_char_data (const lcd_4bit_t *_lcd_ ,uint8 data);
@@ -4894,6 +4954,7 @@ Std_ReturnType lcd_4bit_send_char_data_position (const lcd_4bit_t *_lcd_ ,uint8 
 Std_ReturnType lcd_4bit_send_string (const lcd_4bit_t *_lcd_ ,uint8 *str);
 Std_ReturnType lcd_4bit_send_string_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str);
 Std_ReturnType lcd_4bit_send_custome_chr (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos);
+
 
 Std_ReturnType lcd_8bit_initialize (const lcd_8bit_t *_lcd_);
 Std_ReturnType lcd_8bit_send_command (const lcd_8bit_t *_lcd_ ,uint8 command);
@@ -4903,9 +4964,9 @@ Std_ReturnType lcd_8bit_send_string (const lcd_8bit_t *_lcd_ ,uint8 *str);
 Std_ReturnType lcd_8bit_send_string_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str);
 Std_ReturnType lcd_8bit_send_custome_chr (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos);
 
-void convert_byte_to_string (uint8 value, uint8 *str);
-void convert_short_to_string (uint16 value, uint8 *str);
-void convert_int_to_string (uint32 value, uint8 *str);
+Std_ReturnType convert_byte_to_string (uint8 value, uint8 *str);
+Std_ReturnType convert_short_to_string (uint16 value, uint8 *str);
+Std_ReturnType convert_int_to_string (uint32 value, uint8 *str);
 # 18 "./application.h" 2
 
 
@@ -5005,15 +5066,18 @@ lcd_8bit_t lcd_2 = {
 
 };
 
-
+uint8 lcd_counter = 0;
+uint8 lcd_counter_text[4];
 int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
     application_intialize();
+    ret = lcd_8bit_send_string_position(&lcd_2, 1 , 1 , "counter: ");
 
     while(1){
-       ret = lcd_4bit_send_string_position(&lcd_1 , 1 , 1 , "mohamed");
-       ret = lcd_4bit_send_string_position(&lcd_1 , 2 , 1 , "asfddshg");
-
+        ret = convert_byte_to_string(lcd_counter, lcd_counter_text);
+        ret = lcd_8bit_send_string_position(&lcd_2, 1 , 10 , lcd_counter_text);
+        lcd_counter++;
+        _delay((unsigned long)((50)*(4000000UL/4000.0)));
     }
 
     return (0);

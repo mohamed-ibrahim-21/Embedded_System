@@ -94,15 +94,18 @@ lcd_8bit_t lcd_2 = {
     
 };
 
-
+uint8 lcd_counter = 0; 
+uint8 lcd_counter_text[4];
 int main() { 
     Std_ReturnType ret = E_NOT_OK;
     application_intialize();
-
+    ret = lcd_8bit_send_string_position(&lcd_2, 1 , 1 , "counter: ");
+    
     while(1){
-       ret = lcd_4bit_send_string_position(&lcd_1 , 1 , 1 , "mohamed");
-       ret = lcd_4bit_send_string_position(&lcd_1 , 2 , 1 , "asfddshg");
-
+        ret = convert_byte_to_string(lcd_counter, lcd_counter_text);
+        ret = lcd_8bit_send_string_position(&lcd_2, 1 , 10 , lcd_counter_text);
+        lcd_counter++;
+        __delay_ms(50);
     }
     
     return (EXIT_SUCCESS);

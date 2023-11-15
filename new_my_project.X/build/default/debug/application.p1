@@ -1,38 +1,45 @@
 Version 4.0 HI-TECH Software Intermediate Code
 "66 ./ECU_Layer/LCD/../../MCAL_Layer/GPIO/hal_gpio.h
-[s S272 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S272 . port pin direction logic ]
+[s S273 :3 `uc 1 :3 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S273 . port pin direction logic ]
 "37 ./ECU_Layer/LCD/ecu_lcd.h
 [; ;./ECU_Layer/LCD/ecu_lcd.h: 37: typedef struct{
-[s S279 `S272 1 `S272 1 `S272 -> 4 `i ]
-[n S279 . lcd_rs lcd_en lcd_data ]
+[s S280 `S273 1 `S273 1 `S273 -> 4 `i ]
+[n S280 . lcd_rs lcd_en lcd_data ]
 "11 application.c
 [; ;application.c: 11: lcd_4bit_t lcd_1 = {
-[c E2829 0 1 2 3 4 .. ]
-[n E2829 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
-[c E2819 0 1 2 3 4 5 6 7 .. ]
-[n E2819 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
-[c E2815 0 1 .. ]
-[n E2815 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
-[c E2811 0 1 .. ]
-[n E2811 . GPIO_LOW GPIO_HIGH  ]
+[c E2996 0 1 2 3 4 .. ]
+[n E2996 . PORTA_INDEX PORTB_INDEX PORTC_INDEX PORTD_INDEX PORTE_INDEX  ]
+[c E2986 0 1 2 3 4 5 6 7 .. ]
+[n E2986 . GPIO_PIN0 GPIO_PIN1 GPIO_PIN2 GPIO_PIN3 GPIO_PIN4 GPIO_PIN5 GPIO_PIN6 GPIO_PIN7  ]
+[c E2982 0 1 .. ]
+[n E2982 . GPIO_DIRECTION_OUTPUT GPIO_DIRECTION_INPUT  ]
+[c E2978 0 1 .. ]
+[n E2978 . GPIO_LOW GPIO_HIGH  ]
 "43 ./ECU_Layer/LCD/ecu_lcd.h
 [; ;./ECU_Layer/LCD/ecu_lcd.h: 43: typedef struct{
-[s S280 `S272 1 `S272 1 `S272 -> 8 `i ]
-[n S280 . lcd_rs lcd_en lcd_data ]
+[s S281 `S273 1 `S273 1 `S273 -> 8 `i ]
+[n S281 . lcd_rs lcd_en lcd_data ]
 [p mainexit ]
 "26 ./application.h
 [; ;./application.h: 26: void application_intialize(void);
 [v _application_intialize `(v ~T0 @X0 0 ef ]
-"55 ./ECU_Layer/LCD/ecu_lcd.h
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 55: Std_ReturnType lcd_4bit_send_string_position (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str);
-[v _lcd_4bit_send_string_position `(uc ~T0 @X0 0 ef4`*CS279`uc`uc`*uc ]
-"50
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 50: Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_);
-[v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS279 ]
-"58
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 58: Std_ReturnType lcd_8bit_initialize (const lcd_8bit_t *_lcd_);
-[v _lcd_8bit_initialize `(uc ~T0 @X0 0 ef1`*CS280 ]
+"65 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 65: Std_ReturnType lcd_8bit_send_string_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str);
+[v _lcd_8bit_send_string_position `(uc ~T0 @X0 0 ef4`*CS281`uc`uc`*uc ]
+"68
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 68: Std_ReturnType convert_byte_to_string (uint8 value, uint8 *str);
+[v _convert_byte_to_string `(uc ~T0 @X0 0 ef2`uc`*uc ]
+[v F2948 `(v ~T0 @X0 1 tf1`ul ]
+"12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
+[v __delay `JF2948 ~T0 @X0 0 e ]
+[p i __delay ]
+"51 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 51: Std_ReturnType lcd_4bit_initialize (const lcd_4bit_t *_lcd_);
+[v _lcd_4bit_initialize `(uc ~T0 @X0 0 ef1`*CS280 ]
+"60
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 60: Std_ReturnType lcd_8bit_initialize (const lcd_8bit_t *_lcd_);
+[v _lcd_8bit_initialize `(uc ~T0 @X0 0 ef1`*CS281 ]
 "54 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\proc\pic18f4620.h
 [; <" PORTA equ 0F80h ;# ">
 "191
@@ -309,50 +316,50 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; <" TOSU equ 0FFFh ;# ">
 "11 application.c
 [; ;application.c: 11: lcd_4bit_t lcd_1 = {
-[v _lcd_1 `S279 ~T0 @X0 1 e ]
+[v _lcd_1 `S280 ~T0 @X0 1 e ]
 [i _lcd_1
 :U ..
 :U ..
 :U ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 0 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 0 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 ..
 :U ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 1 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 1 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 ..
 :U ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 2 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 2 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 3 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 3 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 4 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 4 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 5 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 5 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 ..
 ..
@@ -360,136 +367,153 @@ Version 4.0 HI-TECH Software Intermediate Code
 ]
 "43
 [; ;application.c: 43: lcd_8bit_t lcd_2 = {
-[v _lcd_2 `S280 ~T0 @X0 1 e ]
+[v _lcd_2 `S281 ~T0 @X0 1 e ]
 [i _lcd_2
 :U ..
 :U ..
 :U ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 6 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 6 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 ..
 :U ..
 :U ..
--> . `E2829 2 `uc
--> . `E2819 7 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 2 `uc
+-> . `E2986 7 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 ..
 :U ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 0 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 0 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 1 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 1 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 2 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 2 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 3 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 3 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 4 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 4 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 5 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 5 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 6 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 6 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 :U ..
--> . `E2829 3 `uc
--> . `E2819 7 `uc
--> . `E2815 0 `uc
--> . `E2811 0 `uc
+-> . `E2996 3 `uc
+-> . `E2986 7 `uc
+-> . `E2982 0 `uc
+-> . `E2978 0 `uc
 ..
 ..
 ..
 ..
 ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+"97
+[; ;application.c: 97: uint8 lcd_counter = 0;
+[v _lcd_counter `uc ~T0 @X0 1 e ]
+[i _lcd_counter
+-> -> 0 `i `uc
+]
 "98
-[; ;application.c: 98: int main() {
+[; ;application.c: 98: uint8 lcd_counter_text[4];
+[v _lcd_counter_text `uc ~T0 @X0 -> 4 `i e ]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"99
+[; ;application.c: 99: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"99
-[; ;application.c: 99:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"100
+[; ;application.c: 100:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"100
-[; ;application.c: 100:     application_intialize();
+"101
+[; ;application.c: 101:     application_intialize();
 [e ( _application_intialize ..  ]
 "102
-[; ;application.c: 102:     while(1){
-[e :U 283 ]
-{
-"103
-[; ;application.c: 103:        ret = lcd_4bit_send_string_position(&lcd_1 , 1 , 1 , "mohamed");
-[e = _ret ( _lcd_4bit_send_string_position (4 , , , -> &U _lcd_1 `*CS279 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
+[; ;application.c: 102:     ret = lcd_8bit_send_string_position(&lcd_2, 1 , 1 , "counter: ");
+[e = _ret ( _lcd_8bit_send_string_position (4 , , , -> &U _lcd_2 `*CS281 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
 "104
-[; ;application.c: 104:        ret = lcd_4bit_send_string_position(&lcd_1 , 2 , 1 , "asfddshg");
-[e = _ret ( _lcd_4bit_send_string_position (4 , , , -> &U _lcd_1 `*CS279 -> -> 2 `i `uc -> -> 1 `i `uc :s 2C ]
-"106
-[; ;application.c: 106:     }
-}
-[e :U 282 ]
-[e $U 283  ]
+[; ;application.c: 104:     while(1){
 [e :U 284 ]
+{
+"105
+[; ;application.c: 105:         ret = convert_byte_to_string(lcd_counter, lcd_counter_text);
+[e = _ret ( _convert_byte_to_string (2 , _lcd_counter &U _lcd_counter_text ]
+"106
+[; ;application.c: 106:         ret = lcd_8bit_send_string_position(&lcd_2, 1 , 10 , lcd_counter_text);
+[e = _ret ( _lcd_8bit_send_string_position (4 , , , -> &U _lcd_2 `*CS281 -> -> 1 `i `uc -> -> 10 `i `uc &U _lcd_counter_text ]
+"107
+[; ;application.c: 107:         lcd_counter++;
+[e ++ _lcd_counter -> -> 1 `i `uc ]
 "108
-[; ;application.c: 108:     return (0);
-[e ) -> 0 `i ]
-[e $UE 281  ]
+[; ;application.c: 108:         _delay((unsigned long)((50)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
 "109
-[; ;application.c: 109: }
-[e :UE 281 ]
+[; ;application.c: 109:     }
 }
+[e :U 283 ]
+[e $U 284  ]
+[e :U 285 ]
+"111
+[; ;application.c: 111:     return (0);
+[e ) -> 0 `i ]
+[e $UE 282  ]
 "112
-[; ;application.c: 112: void application_intialize(void){
+[; ;application.c: 112: }
+[e :UE 282 ]
+}
+"115
+[; ;application.c: 115: void application_intialize(void){
 [v _application_intialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _application_intialize ]
 [f ]
-"113
-[; ;application.c: 113:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"116
+[; ;application.c: 116:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"114
-[; ;application.c: 114:     ret = lcd_4bit_initialize(&lcd_1);
-[e = _ret ( _lcd_4bit_initialize (1 -> &U _lcd_1 `*CS279 ]
-"115
-[; ;application.c: 115:     ret = lcd_8bit_initialize(&lcd_2);
-[e = _ret ( _lcd_8bit_initialize (1 -> &U _lcd_2 `*CS280 ]
-"116
-[; ;application.c: 116: }
-[e :UE 285 ]
+"117
+[; ;application.c: 117:     ret = lcd_4bit_initialize(&lcd_1);
+[e = _ret ( _lcd_4bit_initialize (1 -> &U _lcd_1 `*CS280 ]
+"118
+[; ;application.c: 118:     ret = lcd_8bit_initialize(&lcd_2);
+[e = _ret ( _lcd_8bit_initialize (1 -> &U _lcd_2 `*CS281 ]
+"119
+[; ;application.c: 119: }
+[e :UE 286 ]
 }
-[a 2C 97 115 102 100 100 115 104 103 0 ]
-[a 1C 109 111 104 97 109 101 100 0 ]
+[a 1C 99 111 117 110 116 101 114 58 32 0 ]

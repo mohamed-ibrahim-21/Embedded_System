@@ -387,25 +387,48 @@ Std_ReturnType lcd_8bit_send_custome_chr         (const lcd_8bit_t *_lcd_ ,uint8
     else{
         
     }
-    
-    
     return ret;
 }
 
 /*******************************************CONVERT_TO_STRING*******************************************/
 
-void convert_byte_to_string  (uint8 value, uint8 *str){
-    
+Std_ReturnType convert_byte_to_string  (uint8 value, uint8 *str){
+    Std_ReturnType ret = E_OK;
+    if(NULL == str){
+        ret = E_NOT_OK;
+    }
+    else{
+        memset(str, '\0', 4);
+        sprintf(str , "%i", value);
+    }
+    return ret;
 }
 
-void convert_short_to_string (uint16 value, uint8 *str){
-    
+Std_ReturnType convert_short_to_string (uint16 value, uint8 *str){
+    Std_ReturnType ret = E_OK;
+    if(NULL == str){
+        ret = E_NOT_OK;
+    }
+    else{
+        memset(str, '\0', 6);
+        sprintf(str , "%i", value);
+    }
+    return ret;
 }
 
-void convert_int_to_string   (uint32 value, uint8 *str){
-    
+Std_ReturnType convert_int_to_string   (uint32 value, uint8 *str){
+    Std_ReturnType ret = E_OK;
+    if(NULL == str){
+        ret = E_NOT_OK;
+    }
+    else{
+        memset(str, '\0', 11);
+        sprintf(str , "%i", value);
+    }
+    return ret;
 }
 
+/**********************************************HELPER FUNCTIONS*********************************************/
 static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_command){
     Std_ReturnType ret = E_OK;
     ret = gpio_pin_write_logic(&(_lcd_->lcd_data[0]), (_data_command >> 0) & (uint8)0x01);
@@ -415,7 +438,6 @@ static Std_ReturnType lcd_send_4bits(const lcd_4bit_t *_lcd_ , uint8 _data_comma
     
     return ret;
 }
-
 
 static Std_ReturnType lcd_4bit_send_enable_signal(const lcd_4bit_t *_lcd_){
     Std_ReturnType ret = E_OK;
@@ -466,4 +488,5 @@ static Std_ReturnType lcd_4bit_set_cursor (const lcd_4bit_t *_lcd_, uint8 row , 
     }
     return ret;
 }
+
 
