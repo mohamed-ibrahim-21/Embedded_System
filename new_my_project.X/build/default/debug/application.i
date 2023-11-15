@@ -5066,18 +5066,36 @@ lcd_8bit_t lcd_2 = {
 
 };
 
-uint8 lcd_counter = 0;
-uint8 lcd_counter_text[4];
+const uint8 customChar1[] = {0x0E,0x1B,0x11,0x11,0x11,0x11,0x1F,0x00};
+const uint8 customChar2[] = {0x0E,0x1B,0x11,0x11,0x11,0x1F,0x1F,0x00};
+const uint8 customChar3[] = {0x0E,0x1B,0x11,0x11,0x1F,0x1F,0x1F,0x00};
+const uint8 customChar4[] = {0x0E,0x1B,0x11,0x1F,0x1F,0x1F,0x1F,0x00};
+const uint8 customChar5[] = {0x0E,0x1B,0x1F,0x1F,0x1F,0x1F,0x1F,0x00};
+const uint8 customChar6[] = {0x0E,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x00};
+
+
 int main() {
     Std_ReturnType ret = (Std_ReturnType)0x00;
     application_intialize();
-    ret = lcd_8bit_send_string_position(&lcd_2, 1 , 1 , "counter: ");
-
     while(1){
-        ret = convert_byte_to_string(lcd_counter, lcd_counter_text);
-        ret = lcd_8bit_send_string_position(&lcd_2, 1 , 10 , lcd_counter_text);
-        lcd_counter++;
-        _delay((unsigned long)((50)*(4000000UL/4000.0)));
+            ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar1 , 0);
+            _delay((unsigned long)((100)*(4000000UL/4000.0)));
+
+            ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar2 , 0);
+            _delay((unsigned long)((100)*(4000000UL/4000.0)));
+
+            ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar3 , 0);
+            _delay((unsigned long)((100)*(4000000UL/4000.0)));
+
+
+            ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar4 , 0);
+            _delay((unsigned long)((100)*(4000000UL/4000.0)));
+
+            ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar5 , 0);
+            _delay((unsigned long)((100)*(4000000UL/4000.0)));
+
+            ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar6 , 0);
+            _delay((unsigned long)((100)*(4000000UL/4000.0)));
     }
 
     return (0);

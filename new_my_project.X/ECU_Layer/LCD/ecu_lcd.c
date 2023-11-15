@@ -194,11 +194,16 @@ Std_ReturnType lcd_4bit_send_string_position     (const lcd_4bit_t *_lcd_ ,uint8
  */
 Std_ReturnType lcd_4bit_send_custome_chr         (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos){
     Std_ReturnType ret = E_OK;
+    uint8 l_lcd_counter = ZERO_INIT;
     if(NULL == _lcd_){
         ret = E_NOT_OK;
     }
     else{
-        
+        ret = lcd_4bit_send_command(_lcd_, (_LCD_CGRAM_START+(mem_pos*8)));
+        for(l_lcd_counter = 0 ; l_lcd_counter<8 ; l_lcd_counter++){
+            ret = lcd_4bit_send_char_data(_lcd_, _chr[l_lcd_counter]);
+        }
+        ret = lcd_4bit_send_char_data_position(_lcd_ , row , column , mem_pos);
     }
     
     

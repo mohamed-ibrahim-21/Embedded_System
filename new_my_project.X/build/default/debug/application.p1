@@ -24,12 +24,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "26 ./application.h
 [; ;./application.h: 26: void application_intialize(void);
 [v _application_intialize `(v ~T0 @X0 0 ef ]
-"65 ./ECU_Layer/LCD/ecu_lcd.h
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 65: Std_ReturnType lcd_8bit_send_string_position (const lcd_8bit_t *_lcd_ ,uint8 row ,uint8 column , uint8 *str);
-[v _lcd_8bit_send_string_position `(uc ~T0 @X0 0 ef4`*CS281`uc`uc`*uc ]
-"68
-[; ;./ECU_Layer/LCD/ecu_lcd.h: 68: Std_ReturnType convert_byte_to_string (uint8 value, uint8 *str);
-[v _convert_byte_to_string `(uc ~T0 @X0 0 ef2`uc`*uc ]
+"57 ./ECU_Layer/LCD/ecu_lcd.h
+[; ;./ECU_Layer/LCD/ecu_lcd.h: 57: Std_ReturnType lcd_4bit_send_custome_chr (const lcd_4bit_t *_lcd_ ,uint8 row ,uint8 column , const uint8 _chr[], uint8 mem_pos);
+[v _lcd_4bit_send_custome_chr `(uc ~T0 @X0 0 ef5`*CS280`uc`uc`*Cuc`uc ]
 [v F2948 `(v ~T0 @X0 1 tf1`ul ]
 "12 C:/Program Files/Microchip/MPLABX/v6.15/packs/Microchip/PIC18Fxxxx_DFP/1.4.151/xc8\pic\include\builtins.h
 [v __delay `JF2948 ~T0 @X0 0 e ]
@@ -441,79 +438,180 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "97
-[; ;application.c: 97: uint8 lcd_counter = 0;
-[v _lcd_counter `uc ~T0 @X0 1 e ]
-[i _lcd_counter
+[; ;application.c: 97: const uint8 customChar1[] = {0x0E,0x1B,0x11,0x11,0x11,0x11,0x1F,0x00};
+[v _customChar1 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar1
+:U ..
+-> -> 14 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
 -> -> 0 `i `uc
+..
 ]
 "98
-[; ;application.c: 98: uint8 lcd_counter_text[4];
-[v _lcd_counter_text `uc ~T0 @X0 -> 4 `i e ]
-[v $root$_main `(v ~T0 @X0 0 e ]
+[; ;application.c: 98: const uint8 customChar2[] = {0x0E,0x1B,0x11,0x11,0x11,0x1F,0x1F,0x00};
+[v _customChar2 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar2
+:U ..
+-> -> 14 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
 "99
-[; ;application.c: 99: int main() {
+[; ;application.c: 99: const uint8 customChar3[] = {0x0E,0x1B,0x11,0x11,0x1F,0x1F,0x1F,0x00};
+[v _customChar3 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar3
+:U ..
+-> -> 14 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"100
+[; ;application.c: 100: const uint8 customChar4[] = {0x0E,0x1B,0x11,0x1F,0x1F,0x1F,0x1F,0x00};
+[v _customChar4 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar4
+:U ..
+-> -> 14 `i `uc
+-> -> 27 `i `uc
+-> -> 17 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"101
+[; ;application.c: 101: const uint8 customChar5[] = {0x0E,0x1B,0x1F,0x1F,0x1F,0x1F,0x1F,0x00};
+[v _customChar5 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar5
+:U ..
+-> -> 14 `i `uc
+-> -> 27 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+"102
+[; ;application.c: 102: const uint8 customChar6[] = {0x0E,0x1F,0x1F,0x1F,0x1F,0x1F,0x1F,0x00};
+[v _customChar6 `Cuc ~T0 @X0 -> 8 `i e ]
+[i _customChar6
+:U ..
+-> -> 14 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 31 `i `uc
+-> -> 0 `i `uc
+..
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"105
+[; ;application.c: 105: int main() {
 [v _main `(i ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"100
-[; ;application.c: 100:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"106
+[; ;application.c: 106:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"101
-[; ;application.c: 101:     application_intialize();
+"107
+[; ;application.c: 107:     application_intialize();
 [e ( _application_intialize ..  ]
-"102
-[; ;application.c: 102:     ret = lcd_8bit_send_string_position(&lcd_2, 1 , 1 , "counter: ");
-[e = _ret ( _lcd_8bit_send_string_position (4 , , , -> &U _lcd_2 `*CS281 -> -> 1 `i `uc -> -> 1 `i `uc :s 1C ]
-"104
-[; ;application.c: 104:     while(1){
+"108
+[; ;application.c: 108:     while(1){
 [e :U 284 ]
 {
-"105
-[; ;application.c: 105:         ret = convert_byte_to_string(lcd_counter, lcd_counter_text);
-[e = _ret ( _convert_byte_to_string (2 , _lcd_counter &U _lcd_counter_text ]
-"106
-[; ;application.c: 106:         ret = lcd_8bit_send_string_position(&lcd_2, 1 , 10 , lcd_counter_text);
-[e = _ret ( _lcd_8bit_send_string_position (4 , , , -> &U _lcd_2 `*CS281 -> -> 1 `i `uc -> -> 10 `i `uc &U _lcd_counter_text ]
-"107
-[; ;application.c: 107:         lcd_counter++;
-[e ++ _lcd_counter -> -> 1 `i `uc ]
-"108
-[; ;application.c: 108:         _delay((unsigned long)((50)*(4000000UL/4000.0)));
-[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
 "109
-[; ;application.c: 109:     }
+[; ;application.c: 109:             ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar1 , 0);
+[e = _ret ( _lcd_4bit_send_custome_chr (4 , , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 20 `i `uc &U _customChar1 -> -> 0 `i `uc ]
+"110
+[; ;application.c: 110:             _delay((unsigned long)((100)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"112
+[; ;application.c: 112:             ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar2 , 0);
+[e = _ret ( _lcd_4bit_send_custome_chr (4 , , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 20 `i `uc &U _customChar2 -> -> 0 `i `uc ]
+"113
+[; ;application.c: 113:             _delay((unsigned long)((100)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"115
+[; ;application.c: 115:             ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar3 , 0);
+[e = _ret ( _lcd_4bit_send_custome_chr (4 , , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 20 `i `uc &U _customChar3 -> -> 0 `i `uc ]
+"116
+[; ;application.c: 116:             _delay((unsigned long)((100)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"119
+[; ;application.c: 119:             ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar4 , 0);
+[e = _ret ( _lcd_4bit_send_custome_chr (4 , , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 20 `i `uc &U _customChar4 -> -> 0 `i `uc ]
+"120
+[; ;application.c: 120:             _delay((unsigned long)((100)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"122
+[; ;application.c: 122:             ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar5 , 0);
+[e = _ret ( _lcd_4bit_send_custome_chr (4 , , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 20 `i `uc &U _customChar5 -> -> 0 `i `uc ]
+"123
+[; ;application.c: 123:             _delay((unsigned long)((100)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"125
+[; ;application.c: 125:             ret = lcd_4bit_send_custome_chr(&lcd_1 , 1 , 20 , customChar6 , 0);
+[e = _ret ( _lcd_4bit_send_custome_chr (4 , , , , -> &U _lcd_1 `*CS280 -> -> 1 `i `uc -> -> 20 `i `uc &U _customChar6 -> -> 0 `i `uc ]
+"126
+[; ;application.c: 126:             _delay((unsigned long)((100)*(4000000UL/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 4000000 `ul `d .4000.0 `ul ]
+"127
+[; ;application.c: 127:     }
 }
 [e :U 283 ]
 [e $U 284  ]
 [e :U 285 ]
-"111
-[; ;application.c: 111:     return (0);
+"129
+[; ;application.c: 129:     return (0);
 [e ) -> 0 `i ]
 [e $UE 282  ]
-"112
-[; ;application.c: 112: }
+"130
+[; ;application.c: 130: }
 [e :UE 282 ]
 }
-"115
-[; ;application.c: 115: void application_intialize(void){
+"133
+[; ;application.c: 133: void application_intialize(void){
 [v _application_intialize `(v ~T0 @X0 1 ef ]
 {
 [e :U _application_intialize ]
 [f ]
-"116
-[; ;application.c: 116:     Std_ReturnType ret = (Std_ReturnType)0x00;
+"134
+[; ;application.c: 134:     Std_ReturnType ret = (Std_ReturnType)0x00;
 [v _ret `uc ~T0 @X0 1 a ]
 [e = _ret -> -> 0 `i `uc ]
-"117
-[; ;application.c: 117:     ret = lcd_4bit_initialize(&lcd_1);
+"135
+[; ;application.c: 135:     ret = lcd_4bit_initialize(&lcd_1);
 [e = _ret ( _lcd_4bit_initialize (1 -> &U _lcd_1 `*CS280 ]
-"118
-[; ;application.c: 118:     ret = lcd_8bit_initialize(&lcd_2);
+"136
+[; ;application.c: 136:     ret = lcd_8bit_initialize(&lcd_2);
 [e = _ret ( _lcd_8bit_initialize (1 -> &U _lcd_2 `*CS281 ]
-"119
-[; ;application.c: 119: }
+"137
+[; ;application.c: 137: }
 [e :UE 286 ]
 }
-[a 1C 99 111 117 110 116 101 114 58 32 0 ]
